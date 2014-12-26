@@ -1,4 +1,4 @@
-:visited {
+﻿:visited {
 	color: #9999CC 
 }
 
@@ -309,3 +309,7 @@
 	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
 }
 
+span.codedirection 
+{	
+	unicode-bidi:bidi-override; direction: rtl; 
+}
