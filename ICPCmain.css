@@ -1,0 +1,311 @@
+:visited {
+	color: #9999CC 
+}
+
+:link {
+	color: #0066CC
+}
+
+
+.normalMenu
+{
+	border:1px solid white;
+	float:left;
+	/*padding-left:3px;
+	margin-left:3px;*/
+}
+
+
+.normalMenu:hover
+{
+	border:1px dotted blue;
+	/*border-color:#000099 #000099 #000099 #000099;*/
+	/* top right bottom left*/
+	border-color:#000099 #000099 #000099 #ffffff;
+	float:left;
+	/*padding-left:3px;
+	margin-left:3px;*/
+}
+
+.selectedMenu
+{
+	border:1px dotted #336699;
+	border-color:#000099 #000099 #000099 #000099;
+	/*border-left-style: none;*/
+	border-right-style: none;
+	
+	float:right;
+	
+	padding-left:3px;
+	margin-left:4px;
+}
+
+.maintable
+{
+	width: 80%;
+	bgcolor: #ffffff;
+	/*float: right;*/
+	border-collapse: separate;
+	table-layout: auto;
+	margin-left:auto; 
+	margin-right:auto;
+	
+	/*border: 3px outset gray;
+	cellpadding cellspacing */
+}
+
+.pagebody
+{
+	background-color:#ffffff;
+	margin-top:0px;
+	padding-top: 0px;
+	vertical-align:top;
+}
+
+.content
+{
+	font-size:20px;
+	margin-left:1em;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.tablecontent
+{
+	font-size:20px;
+	margin-left:1em;
+	border-collapse: collapse; 
+	width: 90%;
+	font-family: Helvetica, Arial, sans-serif;
+}	
+
+.authorindextablecontent
+{
+	font-size:20px;
+	border-collapse: collapse; 
+	font-family: Helvetica, Arial, sans-serif;
+	width: 60%;
+	table-layout: auto;
+	margin-left:20%; 
+	margin-right:20%;
+	padding-left: 10px;
+	/*float: right;*/	
+}	
+
+.steeringtablecontent
+{
+	font-size:20px;
+	margin-left:1em;
+	border-collapse: collapse; 
+
+	width: 80%;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+
+.steeringname
+{
+	color: #000099;
+	/*font-style: italic;*/
+}
+
+.steeringalign
+{
+	text-align: left;
+	color: #000000;
+	vertical-align: top;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.makered {
+	color: red;
+}
+
+.steeringtermalign
+{
+	text-align:left;
+	color: #000000;
+	vertical-align: top;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+
+}
+
+.pagetitle
+{
+	/*margin-left:1em;*/
+	font-size:x-large;
+	text-align:left;
+	border:1px dotted #336699;
+	border-color:#eeeeee #eeeeee #000099 #eeeeee;
+	color: #000099;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+
+.formerly
+{
+	font-size:20px;
+	margin-top:-1em;
+	text-align:center;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+
+.conftitle
+{
+	margin-top:0em;
+	text-align:center;
+
+}
+
+
+.ieeevenue
+{
+	font-size: 14px;
+	margin-top: 0em;
+	margin-left: 0em;
+	text-align:left;
+	font-family:Helvetica, Arial, sans-serif
+}
+
+
+
+
+.lastMod
+{
+	font-size:16px;
+	margin-left:1em;
+	text-align:right;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.modinfo {
+	font-size : 80%;
+	top : 100%;
+	text-align : right;
+}
+
+.putline
+{
+	border:1px solid white;
+	/* top right bottom left*/
+	border-color: #eeeeee #ffffff #cccccc #cccccc;
+}
+
+.logoputline
+{
+	/*
+	border:1px solid white;
+	border-color: #ffffff #cccccc #ffffff #ffffff;
+	*/
+}
+
+
+.backcolor
+{
+	background-color: #eeeeee;
+}
+
+.conferenceline
+{
+	border:1px solid black;
+	/* top right bottom left*/
+	border-color: #ffffff #ffffff #000000 #ffffff;
+	font-size:20px;
+	margin-left:1em;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+
+}
+
+.confbox
+{
+	border-style: solid; 
+	border-width: 2px;
+	color: #EEEEEE;
+	background-color: #0066CC;
+	font-family: Helvetica, Arial, sans-serif	
+}
+
+
+.authorindexbox
+{
+	border-style: solid; 
+	text-align: left;
+	border-width: 1px;
+	color: #EEEEEE;
+	background-color: #0066CC;
+	font-family: Helvetica, Arial, sans-serif	
+}
+
+
+.eventsheading
+{
+	text-align: left;
+	font-family: Helvetica, Arial, sans-serif	
+}
+
+.confalign
+{
+	
+	text-align:left;
+	vertical-align: top;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+
+.datealign
+{
+	
+	text-align:left;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.venuealign
+{
+	
+	text-align:left;
+	color: #000000;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.linksalign
+{
+	text-align:left;
+	color: #000000;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.upcomingEvent
+{
+	font-size:22px;
+	text-align:left;
+	margin-left:1em;	
+	color: #000099; 
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif;
+
+}
+
+.event
+{
+	font-size:20px;
+	text-align:left;
+	margin-left:1em;	
+
+	color: #0066CC; 
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif;
+
+}
+
+.futureevent
+{
+	font-size:20px;
+	margin-left:1em;	
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif;
+
+}
+
+.smalltext
+{
+	font-size:large;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+

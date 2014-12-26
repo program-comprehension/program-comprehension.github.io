@@ -1,0 +1,83 @@
+#logodisplay
+{
+	float: left;
+	text-align: left;
+	width: 100%;
+	/*display: none;*/
+}
+
+#goleftconfname
+{
+	float: left;
+	text-align: left;
+}
+
+
+#leftmenu
+{
+	display : none;
+	border-spacing : 0px 0px;
+	padding : 0px 0px 0px 0px;
+	margin : 0px 0px 0px 0px;	
+	width : 0px;
+}
+
+.formerly
+{
+	font-size:18px;
+	float: left;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.content
+{
+	font-size:16px;
+	width: 640px;
+	padding : 0px 0px 0px 0px;
+	margin : 0px 0px 0px 0px;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+
+.tablecontent
+{
+	font-size:16px;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.authorindextablecontent
+{
+	font-size:16px;
+	border-collapse: separate; 
+	font-family: Helvetica, Arial, sans-serif;
+	width: 80%;
+	float: left;
+	padding : 0px 0px 0px 0px;
+	
+}
+
+.currentEvent
+{
+	font-size:20px;
+	margin-top:1em;
+	text-align:left;
+	color: #000099; 
+	
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif;
+
+}
+
+
+.lastMod
+{
+	font-size:16px;
+	margin-left:1em;
+	text-align:left;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
+
+.smalltext
+{
+	font-size:small;
+	font-family:Berlin Sans FB, Helvetica, Arial, sans-serif
+}
