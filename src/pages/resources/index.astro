@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils';
+import entries from '../../data/author-index.json';
+const authors = new Set(entries.map((e) => e.name)).size;
+---
+
+<BaseLayout title="Resources" description="Proceedings, the historical author index, and other resources for the program comprehension community.">
+  <div class="page-head">
+    <p class="eyebrow">Resources</p>
+    <h1>Resources</h1>
+    <p class="lead">Where to find the papers, past and present.</p>
+  </div>
+
+  <div class="card-grid">
+    <article class="card">
+      <h3>Proceedings</h3>
+      <p>
+        ICPC and IWPC proceedings from 1998 onward are in the IEEE Computer Society Digital Library;
+        editions published with ACM since 2022 are in the ACM Digital Library. Links for every year are
+        on the <a href={withBase('/events')}>events page</a>.
+      </p>
+      <p>
+        <a class="btn btn-ghost" href="https://www.computer.org/csdl/proceedings/icpc">IEEE CSDL</a>
+        <a class="btn btn-ghost" href="https://dl.acm.org/conference/icpc">ACM DL</a>
+        <a class="btn btn-ghost" href="https://dblp.org/db/conf/iwpc/index.html">dblp</a>
+      </p>
+    </article>
+    <article class="card">
+      <h3>Author index, 1992 to 2006</h3>
+      <p>
+        A searchable index of the {authors.toLocaleString('en-US')} authors who published in the first
+        fourteen WPC, IWPC and ICPC editions, with the year and page of each paper. The 1992 to 1997
+        proceedings are not online, so this is the only index of them.
+      </p>
+      <p>
+        <a class="btn btn-solid" href={withBase('/resources/author-index')}>Search the index</a>
+        <a class="btn btn-ghost" href={withBase('/AuthorIndex.xml')}>XML</a>
+      </p>
+    </article>
+    <article class="card">
+      <h3>Early proceedings</h3>
+      <p>Scanned tables of contents for the three editions that predate digital publication.</p>
+      <ul>
+        <li><a href={withBase('/IWPC-1992.pdf')}>1992 · Orlando</a></li>
+        <li><a href={withBase('/IWPC-1993.pdf')}>1993 · Capri</a></li>
+        <li><a href={withBase('/IWPC-1994.pdf')}>1994 · Washington DC</a></li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>This website</h3>
+      <p>
+        The site is maintained by the steering committee and built from a public repository.
+        Corrections and additions are welcome as issues or pull requests.
+      </p>
+      <p><a class="btn btn-ghost" href="https://github.com/program-comprehension/program-comprehension.github.io">GitHub</a></p>
+    </article>
+  </div>
+</BaseLayout>

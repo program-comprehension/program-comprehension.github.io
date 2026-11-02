@@ -1,0 +1,184 @@
+# Awards presented at ICPC.
+#
+# award: mip | rajlich | distinguished | reviewer
+#   mip           Most Influential Paper (paper from the ICPC ten years earlier)
+#   rajlich       Václav Rajlich Early Career Achievement Award (since 2024)
+#   distinguished ACM SIGSOFT / IEEE TCSE Distinguished Paper awards
+#   reviewer      Distinguished Reviewer awards
+#
+# Entries marked "verify" in a note were compiled from secondary sources
+# (university news, programme pages) and should be checked by the SC.
+
+# ----------------------------------------------------------- Most Influential Paper
+- id: mip-2026
+  award: mip
+  year: 2026
+  title: A Novel Approach for Estimating Truck Factors
+  recipients: [Guilherme Avelino, Leonardo Passos, Andre Hora, Marco Tulio Valente]
+  originalYear: 2016
+  originalSeries: ICPC
+  doi: 10.1109/ICPC.2016.7503718
+- id: mip-2025
+  award: mip
+  year: 2025
+  title: "I know what you did last summer: an investigation of how developers spend their time"
+  recipients: [Roberto Minelli, Andrea Mocci, Michele Lanza]
+  originalYear: 2015
+  originalSeries: ICPC
+- id: mip-2024
+  award: mip
+  year: 2024
+  title: Automatic documentation generation via source code summarization of method context
+  recipients: [Paul W. McBurney, Collin McMillan]
+  originalYear: 2014
+  originalSeries: ICPC
+- id: mip-2023
+  award: mip
+  year: 2023
+  title: Automatic generation of natural language summaries for Java classes
+  recipients: [Laura Moreno, Jairo Aponte, Giriprasad Sridhara, Andrian Marcus, Lori Pollock, K. Vijay-Shanker]
+  originalYear: 2013
+  originalSeries: ICPC
+- id: mip-2022
+  award: mip
+  year: 2022
+  title: Measuring programming experience
+  recipients: [Janet Siegmund, Christian Kästner, Jörg Liebig, Sven Apel, Stefan Hanenberg]
+  originalYear: 2012
+  originalSeries: ICPC
+- id: mip-2021
+  award: mip
+  year: 2021
+  title: Design Defects Detection and Correction by Example
+  recipients: [Marouane Kessentini, Wael Kessentini, Houari Sahraoui, Mounir Assaf, Ali Ouni]
+  originalYear: 2011
+  originalSeries: ICPC
+- id: mip-2020
+  award: mip
+  year: 2020
+  title: On the Equivalence of Information Retrieval Methods for Automated Traceability Link Recovery
+  recipients: [Rocco Oliveto, Malcom Gethers, Denys Poshyvanyk, Andrea De Lucia]
+  originalYear: 2010
+  originalSeries: ICPC
+- id: mip-2019
+  award: mip
+  year: 2019
+  title: To CamelCase or Under_score
+  recipients: [David Binkley, Marcia Davis, Dawn Lawrie, Christopher Morrell]
+  originalYear: 2009
+  originalSeries: ICPC
+- id: mip-2018
+  award: mip
+  year: 2018
+  title: "NiCad: Accurate Detection of Near-Miss Intentional Clones Using Flexible Pretty-Printing and Code Normalization"
+  recipients: [Chanchal K. Roy, James R. Cordy]
+  originalYear: 2008
+  originalSeries: ICPC
+- id: mip-2017
+  award: mip
+  year: 2017
+  title: Combining Formal Concept Analysis with Information Retrieval for Concept Location in Source Code
+  recipients: [Denys Poshyvanyk, Andrian Marcus]
+  originalYear: 2007
+  originalSeries: ICPC
+- id: mip-2016
+  award: mip
+  year: 2016
+  title: "What's in a Name? A Study of Identifiers"
+  recipients: [Dawn Lawrie, Christopher Morrell, Henry Feild, David Binkley]
+  originalYear: 2006
+  originalSeries: ICPC
+- id: mip-2015
+  award: mip
+  year: 2015
+  title: Concise and Consistent Naming
+  recipients: [Florian Deißenböck, Markus Pizka]
+  originalYear: 2005
+  originalSeries: IWPC
+  note: verify
+- id: mip-2014
+  award: mip
+  year: 2014
+  title: An Effectiveness Measure for Software Clustering Algorithms
+  recipients: [Zhihua Wen, Vassilios Tzerpos]
+  originalYear: 2004
+  originalSeries: IWPC
+  note: verify
+- id: mip-2012
+  award: mip
+  year: 2012
+  title: The Role of Concepts in Program Comprehension
+  recipients: [Václav Rajlich, Norman Wilde]
+  originalYear: 2002
+  originalSeries: IWPC
+
+# ------------------------------------------- Václav Rajlich Early Career Achievement Award
+- id: rajlich-2026
+  award: rajlich
+  year: 2026
+  recipients: [Marvin Wyrich]
+  affiliation: Saarland University, Germany
+- id: rajlich-2025
+  award: rajlich
+  year: 2025
+  recipients: [Yu Huang]
+  affiliation: Vanderbilt University, USA
+- id: rajlich-2024
+  award: rajlich
+  year: 2024
+  recipients: [Fernanda Madeiral]
+  affiliation: Vrije Universiteit Amsterdam, Netherlands
+
+# ------------------------------------------------------------ Distinguished Papers
+- id: dp-2026-a
+  award: distinguished
+  year: 2026
+  title: Improved Bug Localization with AI Agents Leveraging Hypothesis and Dynamic Cognition
+  recipients: [Asif Samir, Mohammad Masudur Rahman]
+  doi: 10.1145/3794763.3794818
+  note: verify
+- id: dp-2026-b
+  award: distinguished
+  year: 2026
+  title: "Understanding Codebase like a Professional! Human-AI Collaboration for Code Comprehension"
+  recipients: [Jie Gao, Yue Xue, Xiaofei Xie, Junming Cao, SoeMin Thant, Erika Lee, Bowen Xu]
+- id: dp-2022-a
+  award: distinguished
+  year: 2022
+  title: Find Bugs in Static Bug Finders
+  recipients: [Junjie Wang, Yuchao Huang, Song Wang, Qing Wang]
+- id: dp-2022-b
+  award: distinguished
+  year: 2022
+  title: Anchoring Code Understandability Evaluations Through Task Descriptions
+  recipients: [Marvin Wyrich, Lasse Merz, Daniel Graziotin]
+- id: dp-2022-c
+  award: distinguished
+  year: 2022
+  title: Predicting Change Propagation between Code Clone Instances by Graph-based Deep Learning
+  recipients: [Bin Hu, Yijian Wu, Xin Peng, Jun Sun, Nanjie Zhan, Jun Wu]
+- id: dp-2022-d
+  award: distinguished
+  year: 2022
+  title: Demystifying Software Release Note Issues on GitHub
+  recipients: [Jianyu Wu, Hao He, Wenxin Xiao, Kai Gao, Minghui Zhou]
+- id: dp-2021-a
+  award: distinguished
+  year: 2021
+  title: "Understanding Code Smell Detection via Code Review: A Study of the OpenStack Community"
+  recipients: [Xiaofeng Han, Amjed Tahir, Peng Liang, Steve Counsell, Yajing Luo]
+- id: dp-2021-b
+  award: distinguished
+  year: 2021
+  title: Project-Level Encoding for Neural Source Code Summarization of Subroutines
+  recipients: [Aakash Bansal, Sakib Haque, Collin McMillan]
+- id: dp-2020-a
+  award: distinguished
+  year: 2020
+  title: An Empirical Study of Quick Remedy Commits
+  recipients: [Fengcai Wen, Csaba Nagy, Michele Lanza, Gabriele Bavota]
+- id: dp-2020-b
+  award: distinguished
+  year: 2020
+  title: A Self-Attentional Neural Architecture for Code Completion with Multi-Task Learning
+  recipients: [Fang Liu, Ge Li, Bolin Wei, Xin Xia, Zhiyi Fu, Zhi Jin]

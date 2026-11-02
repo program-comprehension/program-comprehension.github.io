@@ -1,0 +1,14 @@
+---
+/**
+ * Renders an email address reversed in the HTML and flipped back with CSS, the
+ * same trick the 2014 site used, so scrapers that read the raw source get the
+ * mirror image. Assistive tech reads the real address from aria-label.
+ */
+interface Props { email: string }
+const { email } = Astro.props;
+const reversed = [...email].reverse().join('');
+---
+<span class="rev" aria-label={email} title={email}>{reversed}</span>
+<style>
+  .rev { unicode-bidi: bidi-override; direction: rtl; user-select: all; }
+</style>

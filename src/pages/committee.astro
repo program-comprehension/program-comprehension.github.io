@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Obfuscated from '../components/Obfuscated.astro';
+import { SITE } from '../consts';
+import { withBase } from '../utils';
+
+const all = await getCollection('committee');
+const current = all.filter((m) => m.data.status === 'current').sort((a, b) => a.data.order - b.data.order);
+const lifetime = all.filter((m) => m.data.status === 'lifetime');
+const alumni = all
+  .filter((m) => m.data.status === 'alumni')
+  .sort((a, b) => a.data.name.split(' ').pop()!.localeCompare(b.data.name.split(' ').pop()!));
+const termLabel = (t?: number) => (t === 1 ? '1st term' : t === 2 ? '2nd term' : undefined);
+---
+
+<BaseLayout title="Steering Committee" description="Members of the ICPC steering committee, how they are elected, and the committee's alumni.">
+  <div class="page-head">
+    <p class="eyebrow">Governance</p>
+    <h1>Steering committee</h1>
+    <p class="lead">
+      Steering committee members are elected by conference participants each year at the open
+      steering committee meeting held during ICPC. Members serve three-year terms and may not
+      serve more than two consecutive terms.
+    </p>
+    <p>
+      All members are public points of contact for ICPC. Reach the whole committee at
+      <Obfuscated email={SITE.contactEmail} />. The committee's duties and election rules are set
+      out in the <a href={withBase('/governance')}>steering committee charter</a>.
+    </p>
+  </div>
+
+  <h2 style="margin-top:0">Current members</h2>
+  <ul class="members">
+    {current.map((m) => (
+      <li class="card member">
+        <div class="member-name">
+          {m.data.url ? <a href={m.data.url}>{m.data.name}</a> : m.data.name}
+          {m.data.role && <span class="tag tag-brand">{m.data.role}</span>}
+        </div>
+        {m.data.affiliation && <p class="muted">{m.data.affiliation}</p>}
+        <p class="small muted">
+          {[termLabel(m.data.term), m.data.termEnds && `ends ${m.data.termEnds}`].filter(Boolean).join(', ')}
+        </p>
+      </li>
+    ))}
+  </ul>
+
+  {lifetime.length > 0 && (
+    <>
+      <h2>Permanent member</h2>
+      {lifetime.map((m) => (
+        <p>
+          <strong>{m.data.name}</strong>{m.data.affiliation && <span class="muted">, {m.data.affiliation}</span>}.
+          Voted a permanent member at IWPC 2002 in recognition of his efforts in establishing IWPC/ICPC as one of the
+          premier venues in the area of program comprehension.
+        </p>
+      ))}
+    </>
+  )}
+
+  <h2>Alumni</h2>
+  <p class="muted">Past members of the WPC, IWPC and ICPC steering committees.</p>
+  <ul class="alumni">
+    {alumni.map((m) => <li>{m.data.name}</li>)}
+  </ul>
+</BaseLayout>
+
+<style>
+  .members { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: var(--space-md); }
+  .member p { margin: 0; }
+  .member-name { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+  .member-name a { text-decoration: none; color: var(--text); }
+  .member-name a:hover { color: var(--accent); }
+  .alumni { columns: 3; column-gap: var(--space-lg); list-style: none; padding: 0; margin: 0; }
+  .alumni li { break-inside: avoid; padding: 0.15rem 0; }
+  @media (max-width: 760px) { .alumni { columns: 2; } }
+  @media (max-width: 480px) { .alumni { columns: 1; } }
+</style>

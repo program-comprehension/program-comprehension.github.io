@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils';
+
+// The 2014 site was a set of flat .html files. GitHub Pages serves this page
+// for any missing path, so old URLs are mapped here (a file-based redirect
+// would collide with the new routes of the same name, e.g. /history).
+const legacy: Record<string, string> = {
+  'index.html': '/',
+  'pastevents.html': '/events',
+  'steeringcommittee.html': '/committee',
+  'governance.html': '/governance',
+  'history.html': '/history',
+  'resources.html': '/resources',
+  'indexauthor.html': '/resources/author-index',
+  'indexyear.html': '/resources/author-index',
+};
+---
+<BaseLayout title="Page not found">
+  <div class="page-head">
+    <p class="eyebrow">404</p>
+    <h1>Page not found</h1>
+    <p class="lead">That address does not exist on this site. The pages that do:</p>
+  </div>
+  <ul>
+    <li><a href={withBase('/events')}>Events</a></li>
+    <li><a href={withBase('/committee')}>Steering committee</a></li>
+    <li><a href={withBase('/governance')}>Governance</a></li>
+    <li><a href={withBase('/awards')}>Awards</a></li>
+    <li><a href={withBase('/history')}>History</a></li>
+    <li><a href={withBase('/resources')}>Resources</a></li>
+  </ul>
+  <script is:inline define:vars={{ legacy }}>
+    (function () {
+      var file = location.pathname.replace(/^\/+/, '').toLowerCase();
+      var target = legacy[file];
+      if (!target && /^authorindex-[a-z0-9]+\.html$/.test(file)) target = '/resources/author-index';
+      if (target) location.replace(target + location.search + location.hash);
+    })();
+  </script>
+</BaseLayout>

@@ -1,0 +1,14 @@
+# Short dated announcements, newest first. The home page shows the latest few.
+- id: 2026-11-icpc-2027-cfp
+  date: "2026-11-02"
+  title: ICPC 2027 will be held in Dublin, Ireland, 25–26 April 2027, co-located with ICSE 2027
+  body: The research track deadline is 5 November 2026. Tools, ERA, RENE and Journal-First tracks follow through December.
+  url: https://conf.researchr.org/home/icpc-2027
+- id: 2026-04-rajlich-award
+  date: "2026-04-13"
+  title: Marvin Wyrich receives the 2026 Václav Rajlich Early Career Achievement Award
+  url: /awards#rajlich
+- id: 2026-04-icpc-2026
+  date: "2026-04-12"
+  title: ICPC 2026 meets in Rio de Janeiro with 35 technical-track papers and a renewed focus on comprehension in the era of LLMs and agents
+  url: https://conf.researchr.org/home/icpc-2026

@@ -1,0 +1,289 @@
+# Every edition of the conference, newest first. Edit this file to add an
+# edition; the Events page and the home page are generated from it.
+#
+# series: short name used at the time (ICPC / IWPC / WPC)
+# dates:  free text, month and days only (the year is its own field)
+# ends:   ISO date of the last day; an edition is "upcoming" until then
+- id: icpc-2027
+  number: 35
+  series: "ICPC"
+  year: 2027
+  ends: "2027-04-26"
+  dates: "April 25-26"
+  location: "Dublin, Ireland"
+  site: "https://conf.researchr.org/home/icpc-2027"
+  colocated: "ICSE 2027"
+  generalChairs: ["Patanamon Thongtanunam"]
+  programChairs: ["Ali Ouni", "Mairieli Wessel"]
+- id: icpc-2026
+  number: 34
+  series: "ICPC"
+  year: 2026
+  ends: "2026-04-13"
+  dates: "April 12-13"
+  location: "Rio de Janeiro, Brazil"
+  site: "https://conf.researchr.org/home/icpc-2026"
+  proceedings: "https://dl.acm.org/doi/proceedings/10.1145/3794763"
+  colocated: "ICSE 2026"
+  generalChairs: ["Marcelo de Almeida Maia"]
+  programChairs: ["Nicole Novielli", "Igor Wiese"]
+- id: icpc-2025
+  number: 33
+  series: "ICPC"
+  year: 2025
+  ends: "2025-04-28"
+  dates: "April 27-28"
+  location: "Ottawa, Ontario, Canada"
+  site: "https://conf.researchr.org/home/icpc-2025"
+  proceedings: "https://dblp.org/db/conf/iwpc/icpc2025.html"
+  colocated: "ICSE 2025"
+  generalChairs: ["Michael W. Godfrey"]
+  programChairs: ["Coen De Roover", "Gema Rodríguez-Pérez"]
+- id: icpc-2024
+  number: 32
+  series: "ICPC"
+  year: 2024
+  ends: "2024-04-16"
+  dates: "April 15-16"
+  location: "Lisbon, Portugal"
+  site: "https://conf.researchr.org/home/icpc-2024"
+  colocated: "ICSE 2024"
+  generalChairs: ["Igor Steinmacher", "Mario Linares-Vásquez"]
+  programChairs: ["Olga Baysal", "Kevin Moran"]
+  proceedings: "https://ieeexplore.ieee.org/xpl/conhome/10555568/proceeding"
+- id: icpc-2023
+  number: 31
+  series: "ICPC"
+  year: 2023
+  dates: "May 15-16"
+  location: "Melbourne, Australia"
+  site: "https://conf.researchr.org/home/icpc-2023"
+  colocated: "ICSE 2023"
+  generalChairs: ["Christoph Treude"]
+  programChairs: ["Raula Gaikovina Kula", "Bonita Sharif"]
+  proceedings: "https://www.computer.org/csdl/proceedings/icpc/2023/1OKpxd5y4HC"
+- id: icpc-2022
+  number: 30
+  series: "ICPC"
+  year: 2022
+  dates: "May 16-17"
+  location: "Pittsburgh, PA, USA"
+  site: "https://conf.researchr.org/home/icpc-2022"
+  colocated: "ICSE 2022"
+  generalChairs: ["Gabriele Bavota"]
+  programChairs: ["Sonia Haiduc", "Venera Arnaoudova"]
+  proceedings: "https://dl.acm.org/doi/proceedings/10.1145/3524610"
+- id: icpc-2021
+  number: 29
+  series: "ICPC"
+  year: 2021
+  dates: "May 18-21"
+  location: "Virtual (Madrid, Spain)"
+  site: "https://conf.researchr.org/home/icpc-2021"
+  proceedings: "https://ieeexplore.ieee.org/xpl/conhome/9462945/proceeding"
+- id: icpc-2020
+  number: 28
+  series: "ICPC"
+  year: 2020
+  dates: "July 13-15"
+  location: "Virtual (Seoul, South Korea)"
+  site: "https://conf.researchr.org/home/icpc-2020"
+  proceedings: "https://dl.acm.org/doi/proceedings/10.1145/3387904"
+- id: icpc-2019
+  number: 27
+  series: "ICPC"
+  year: 2019
+  dates: "May 25-26"
+  location: "Montréal QC, Canada"
+  site: "https://conf.researchr.org/home/icpc-2019"
+  proceedings: "https://ieeexplore.ieee.org/xpl/conhome/8797605/proceeding"
+- id: icpc-2018
+  number: 26
+  series: "ICPC"
+  year: 2018
+  dates: "May 27-28"
+  location: "Gothenburg, Sweden"
+  site: "https://conf.researchr.org/home/icpc-2018"
+- id: icpc-2017
+  number: 25
+  series: "ICPC"
+  year: 2017
+  dates: "May 22-23"
+  location: "Buenos Aires, Argentina"
+  site: "http://www2.unibas.it/icpc2017/"
+  proceedings: "https://www.computer.org/csdl/proceedings/icpc/2017/0535/00/index.html"
+- id: icpc-2016
+  number: 24
+  series: "ICPC"
+  year: 2016
+  dates: "May 16-17"
+  location: "Austin TX, USA"
+  site: "http://www.program-comprehension.org/icpc16"
+  proceedings: "https://www.computer.org/csdl/proceedings/icpc/2016/1428/00/index.html"
+- id: icpc-2015
+  number: 23
+  series: "ICPC"
+  year: 2015
+  dates: "May 18-19"
+  location: "Florence, Italy"
+  site: "https://dibt.unimol.it/ICPC15/Home.html"
+  proceedings: "http://dl.acm.org/citation.cfm?id=2820282"
+- id: icpc-2014
+  number: 22
+  series: "ICPC"
+  year: 2014
+  dates: "June 3-4"
+  location: "Hyderabad, India"
+  site: "http://icpc2014.usask.ca/"
+  proceedings: "http://dl.acm.org/citation.cfm?id=2597008"
+- id: icpc-2013
+  number: 21
+  series: "ICPC"
+  year: 2013
+  dates: "May 20-21"
+  location: "San Francisco CA, USA"
+  site: "http://www.ing.unisannio.it/icpc2013/"
+  proceedings: "http://www.computer.org/csdl/proceedings/icpc/2013/3092/00/index.html"
+- id: icpc-2012
+  number: 20
+  series: "ICPC"
+  year: 2012
+  dates: "June 11-13"
+  location: "Passau, Germany"
+  site: "http://icpc12.sosy-lab.org"
+  proceedings: "http://www.computer.org/csdl/proceedings/icpc/2012/1213/00/index.html"
+- id: icpc-2011
+  number: 19
+  series: "ICPC"
+  year: 2011
+  dates: "June 22-24"
+  location: "Kingston ON, Canada"
+  site: "http://icpc2011.cs.usask.ca/"
+  proceedings: "http://www.computer.org/csdl/proceedings/icpc/2011/4398/00/index.html"
+- id: icpc-2010
+  number: 18
+  series: "ICPC"
+  year: 2010
+  dates: "June 30-July 2"
+  location: "Braga, Portugal"
+  proceedings: "http://www.computer.org/csdl/proceedings/icpc/2010/4113/00/index.html"
+- id: icpc-2009
+  number: 17
+  series: "ICPC"
+  year: 2009
+  dates: "May 17-19"
+  location: "Vancouver BC, Canada"
+  proceedings: "http://dblp.uni-trier.de/db/conf/iwpc/icpc2009.html"
+- id: icpc-2008
+  number: 16
+  series: "ICPC"
+  year: 2008
+  dates: "June 10-13"
+  location: "Amsterdam,  Netherlands"
+  site: "http://www.cs.vu.nl/icpc2008/"
+  proceedings: "http://www.computer.org/csdl/proceedings/icpc/2008/3176/00/index.html"
+- id: icpc-2007
+  number: 15
+  series: "ICPC"
+  year: 2007
+  dates: "June 26-29"
+  location: "Banff AB, Canada"
+  proceedings: "http://www.computer.org/csdl/proceedings/icpc/2007/2860/00/index.html"
+- id: icpc-2006
+  number: 14
+  series: "ICPC"
+  year: 2006
+  dates: "June 14-16"
+  location: "Athens, Greece"
+  proceedings: "http://www.computer.org/csdl/proceedings/icpc/2006/2601/00/index.html"
+- id: iwpc-2005
+  number: 13
+  series: "IWPC"
+  year: 2005
+  dates: "May 15-16"
+  location: "St. Louis MO, USA"
+  proceedings: "http://dblp.uni-trier.de/db/conf/iwpc/iwpc2005.html"
+- id: iwpc-2004
+  number: 12
+  series: "IWPC"
+  year: 2004
+  dates: "June 24-26"
+  location: "Bari, Italy"
+  proceedings: "http://dblp.uni-trier.de/db/conf/iwpc/iwpc2004.html"
+- id: iwpc-2003
+  number: 11
+  series: "IWPC"
+  year: 2003
+  dates: "May 10-11"
+  location: "Portland OR, USA"
+  proceedings: "http://www.computer.org/csdl/proceedings/icpc/2003/1883/00/index.html"
+- id: iwpc-2002
+  number: 10
+  series: "IWPC"
+  year: 2002
+  dates: "June 26-29"
+  location: "Paris, France"
+  proceedings: "http://dblp.uni-trier.de/db/conf/iwpc/iwpc2002.html"
+- id: iwpc-2001
+  number: 9
+  series: "IWPC"
+  year: 2001
+  dates: "May 12-13"
+  location: "Toronto ON, Canada"
+  proceedings: "http://dblp.uni-trier.de/db/conf/iwpc/iwpc2001.html"
+- id: iwpc-2000
+  number: 8
+  series: "IWPC"
+  year: 2000
+  dates: "June 10-11"
+  location: "Limerick, Ireland"
+  proceedings: "http://dblp.uni-trier.de/db/conf/iwpc/iwpc2000.html"
+- id: iwpc-1999
+  number: 7
+  series: "IWPC"
+  year: 1999
+  dates: "May 5-7"
+  location: "Pittsburgh PA, USA"
+  proceedings: "http://dblp.uni-trier.de/db/conf/iwpc/iwpc1999.html"
+- id: iwpc-1998
+  number: 6
+  series: "IWPC"
+  year: 1998
+  dates: "June 24-26"
+  location: "Ischia, Italy"
+  proceedings: "http://dblp.uni-trier.de/db/conf/iwpc/iwpc1998.html"
+- id: wpc-1997
+  number: 5
+  series: "WPC"
+  year: 1997
+  dates: "May 28-30"
+  location: "Dearborn MI, USA"
+  proceedings: "http://www.computer.org/csdl/proceedings/wpc/1997/7993/00/index.html"
+- id: wpc-1996
+  number: 4
+  series: "WPC"
+  year: 1996
+  dates: "March 29-31"
+  location: "Berlin, Germany"
+  proceedings: "http://www.computer.org/csdl/proceedings/wpc/1996/7283/00/index.html"
+- id: wpc-1994
+  number: 3
+  series: "WPC"
+  year: 1994
+  dates: "November 14-15"
+  location: "Washington DC, USA"
+  proceedings: "/IWPC-1994.pdf"
+- id: wpc-1993
+  number: 2
+  series: "WPC"
+  year: 1993
+  dates: "July 8-9"
+  location: "Capri, Italy"
+  proceedings: "/IWPC-1993.pdf"
+- id: wpc-1992
+  number: 1
+  series: "WPC"
+  year: 1992
+  dates: "November 9"
+  location: "Orlando FL, USA"
+  proceedings: "/IWPC-1992.pdf"

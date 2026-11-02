@@ -1,0 +1,107 @@
+# ICPC Steering Committee.
+#
+# status: current | alumni | lifetime
+# term:   1 or 2 (members may serve at most two consecutive three-year terms)
+# termEnds: the ICPC at which the current term ends
+#
+# Current roster as of the ICPC 2026 steering committee meeting (Rio de
+# Janeiro, April 2026). Members elected in 2026 are marked; confirm the
+# second 2026 seat and term years before publishing.
+
+- id: kevin-moran
+  name: Kevin Moran
+  affiliation: University of Central Florida, USA
+  url: https://www.kpmoran.com/
+  role: Chair
+  status: current
+  term: 1
+  termEnds: 2027
+  order: 1
+- id: ali-ouni
+  name: Ali Ouni
+  affiliation: ÉTS Montréal, Université du Québec, Canada
+  url: https://www.etsmtl.ca/etudier-a-lets/corps-enseignant/aouni
+  status: current
+  term: 1
+  termEnds: 2027
+  order: 2
+- id: coen-de-roover
+  name: Coen De Roover
+  affiliation: Vrije Universiteit Brussel, Belgium
+  url: https://soft.vub.ac.be/~cderoove/
+  status: current
+  term: 1
+  elected: 2025
+  termEnds: 2028
+  order: 3
+- id: gema-rodriguez-perez
+  name: Gema Rodríguez-Pérez
+  affiliation: University of British Columbia, Okanagan, Canada
+  url: https://gemarodri.github.io/
+  status: current
+  term: 1
+  elected: 2025
+  termEnds: 2028
+  order: 4
+- id: masud-rahman
+  name: Mohammad Masudur Rahman
+  affiliation: Dalhousie University, Canada
+  url: https://www.cs.dal.ca/~masud/
+  status: current
+  term: 1
+  elected: 2026
+  termEnds: 2029
+  order: 5
+
+# ---------------------------------------------------------------- lifetime
+- id: vaclav-rajlich
+  name: Václav Rajlich
+  affiliation: Wayne State University, USA
+  status: lifetime
+  order: 99
+
+# ---------------------------------------------------------------- alumni
+- { id: alumni-anita-sarma, name: Anita Sarma, status: alumni, affiliation: Oregon State University, USA }
+- { id: alumni-bonita-sharif, name: Bonita Sharif, status: alumni, affiliation: University of Nebraska-Lincoln, USA }
+- { id: alumni-raula-kula, name: Raula Gaikovina Kula, status: alumni, affiliation: The University of Osaka, Japan }
+- { id: alumni-federica-sarro, name: Federica Sarro, status: alumni, affiliation: University College London, UK }
+- { id: alumni-venera-arnaoudova, name: Venera Arnaoudova, status: alumni }
+- { id: alumni-fabio-palomba, name: Fabio Palomba, status: alumni }
+- { id: alumni-anneliese-andrews, name: Anneliese Andrews (Von Mayrhauser), status: alumni }
+- { id: alumni-francoise-balmas, name: Françoise Balmas, status: alumni }
+- { id: alumni-gabriele-bavota, name: Gabriele Bavota, status: alumni }
+- { id: alumni-andrew-begel, name: Andrew Begel, status: alumni }
+- { id: alumni-dirk-beyer, name: Dirk Beyer, status: alumni }
+- { id: alumni-christian-bird, name: Christian Bird, status: alumni }
+- { id: alumni-gerardo-canfora, name: Gerardo Canfora, status: alumni }
+- { id: alumni-aniello-cimitile, name: Aniello Cimitile, status: alumni }
+- { id: alumni-james-cordy, name: James R. Cordy, status: alumni }
+- { id: alumni-michael-godfrey, name: Michael Godfrey, status: alumni }
+- { id: alumni-yann-gael-gueheneuc, name: Yann-Gaël Guéhéneuc, status: alumni }
+- { id: alumni-andrea-de-lucia, name: Andrea De Lucia, status: alumni }
+- { id: alumni-massimiliano-di-penta, name: Massimiliano Di Penta, status: alumni }
+- { id: alumni-steven-eick, name: Steven Eick, status: alumni }
+- { id: alumni-harald-gall, name: Harald Gall, status: alumni }
+- { id: alumni-sonia-haiduc, name: Sonia Haiduc, status: alumni }
+- { id: alumni-shinpei-hayashi, name: Shinpei Hayashi, status: alumni }
+- { id: alumni-emily-hill, name: Emily Hill, status: alumni }
+- { id: alumni-pedro-rangel-henriques, name: Pedro Rangel Henriques, status: alumni }
+- { id: alumni-huzefa-kagdi, name: Huzefa Kagdi, status: alumni }
+- { id: alumni-foutse-khomh, name: Foutse Khomh, status: alumni }
+- { id: alumni-kostas-kontogiannis, name: Kostas Kontogiannis, status: alumni }
+- { id: alumni-ralf-lammel, name: Ralf Lämmel, status: alumni }
+- { id: alumni-panagiotis-linos, name: Panagiotis Linos, status: alumni }
+- { id: alumni-jonathan-maletic, name: Jonathan I. Maletic, status: alumni }
+- { id: alumni-leon-moonen, name: Leon Moonen, status: alumni }
+- { id: alumni-malcolm-munro, name: Malcolm Munro, status: alumni }
+- { id: alumni-hausi-muller, name: Hausi Müller, status: alumni }
+- { id: alumni-rocco-oliveto, name: Rocco Oliveto, status: alumni }
+- { id: alumni-denys-poshyvanyk, name: Denys Poshyvanyk, status: alumni }
+- { id: alumni-chanchal-roy, name: Chanchal Roy, status: alumni }
+- { id: alumni-spencer-rugaber, name: Spencer Rugaber, status: alumni }
+- { id: alumni-alexander-serebrenik, name: Alexander Serebrenik, status: alumni }
+- { id: alumni-janet-siegmund, name: Janet Siegmund, status: alumni }
+- { id: alumni-susan-sim, name: Susan Sim, status: alumni }
+- { id: alumni-dennis-smith, name: Dennis Smith, status: alumni }
+- { id: alumni-tarja-systa, name: Tarja Systä, status: alumni }
+- { id: alumni-giuseppe-visaggio, name: Giuseppe Visaggio, status: alumni }

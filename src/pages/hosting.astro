@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Obfuscated from '../components/Obfuscated.astro';
+import { SITE } from '../consts';
+import { withBase } from '../utils';
+---
+
+<BaseLayout title="Host ICPC" description="How to propose hosting a future edition of the International Conference on Program Comprehension.">
+  <div class="page-head">
+    <p class="eyebrow">Get involved</p>
+    <h1>Host a future ICPC</h1>
+    <p class="lead">
+      The steering committee solicits, considers and approves proposals for each edition of ICPC,
+      including its site and dates and the appointment of its general and program chairs. Proposals
+      from anyone active in the program comprehension community are welcome.
+    </p>
+  </div>
+
+  <div class="prose">
+    <h2 style="margin-top:0">How it works</h2>
+    <p>
+      Since 2018, ICPC has been co-located with the International Conference on Software Engineering
+      (ICSE), and the steering committee expects this to continue: ICSE's host city fixes the location,
+      and ICPC takes place in the two days immediately before the main ICSE program. A hosting proposal
+      is therefore mostly about people. The committee is looking for a general chair who will own the
+      budget, logistics and the relationship with ICSE, and program chairs who will assemble the
+      program committee and run reviewing.
+    </p>
+    <p>
+      Proposals are usually discussed at the open steering committee meeting held during ICPC and
+      decided by the committee in the months after, about two years ahead of the edition in question.
+      General and program chairs may not submit papers to the edition they chair.
+    </p>
+
+    <h2>What to include</h2>
+    <ul>
+      <li><strong>Proposed general chair(s)</strong> and <strong>program chair(s)</strong>, with a short note on their experience organizing or reviewing for ICPC and related venues.</li>
+      <li><strong>Edition and dates</strong>: which ICSE the edition would co-locate with.</li>
+      <li><strong>Ideas for the program</strong>: keynotes, tracks you would keep or add, community events, and anything that would make the edition distinctive.</li>
+      <li><strong>Diversity of the team</strong> across institutions, regions and career stages.</li>
+      <li>Any <strong>constraints or questions</strong> the committee should know about.</li>
+    </ul>
+
+    <h2>Send a proposal</h2>
+    <p>
+      Email the steering committee at <Obfuscated email={SITE.contactEmail} />, or speak to any
+      <a href={withBase('/committee')}>committee member</a> at the conference. The governing rules are in
+      the <a href={withBase('/governance')}>steering committee charter</a>, and the
+      <a href={withBase('/governance')}>program committee guidelines</a> describe how the committee
+      expects program committees to be formed.
+    </p>
+  </div>
+</BaseLayout>

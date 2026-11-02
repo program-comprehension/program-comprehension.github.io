@@ -1,0 +1,99 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const all = await getCollection('awards');
+const byYear = (a: typeof all[number], b: typeof all[number]) => b.data.year - a.data.year;
+const mip = all.filter((a) => a.data.award === 'mip').sort(byYear);
+const rajlich = all.filter((a) => a.data.award === 'rajlich').sort(byYear);
+const distinguished = all.filter((a) => a.data.award === 'distinguished').sort(byYear);
+const dpYears = [...new Set(distinguished.map((a) => a.data.year))];
+---
+
+<BaseLayout title="Awards" description="The ICPC Most Influential Paper award, the Václav Rajlich Early Career Achievement Award, and distinguished paper awards.">
+  <div class="page-head">
+    <p class="eyebrow">Recognition</p>
+    <h1>Awards</h1>
+    <p class="lead">
+      ICPC recognizes work that has shaped program comprehension research over a decade, early-career
+      researchers who are shaping its future, and the strongest papers of each year's program.
+    </p>
+  </div>
+
+  <h2 id="mip" style="margin-top:0">Most Influential Paper</h2>
+  <p class="prose">
+    Each year the conference honors the paper from the ICPC held ten years earlier that has had the
+    greatest influence on research and practice since. The award is selected by a committee appointed
+    by the general and program chairs.
+  </p>
+  <div class="table-wrap">
+    <table class="data">
+      <thead><tr><th>Awarded</th><th>Paper</th><th>Authors</th><th>Originally</th></tr></thead>
+      <tbody>
+        {mip.map((a) => (
+          <tr>
+            <td>{a.data.year}</td>
+            <td>{a.data.doi ? <a href={`https://doi.org/${a.data.doi}`}>{a.data.title}</a> : a.data.title}</td>
+            <td>{a.data.recipients.join(', ')}</td>
+            <td class="nowrap">{a.data.originalSeries} {a.data.originalYear}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">
+    Know a recipient missing from this list? Corrections are welcome; contact the steering committee.
+  </p>
+
+  <h2 id="rajlich">Václav Rajlich Early Career Achievement Award</h2>
+  <div class="prose">
+    <p>
+      Established in 2024 through a gift from the Rajlich family and organized with Wayne State
+      University, the award honors an individual who has made outstanding contributions to program
+      comprehension early in their career, within seven years of their highest degree. The recipient
+      receives an honorarium, travel support to attend ICPC, and gives a colloquium at Wayne State.
+      Nominations are reviewed by the steering committee; the call opens each winter on the
+      conference website.
+    </p>
+  </div>
+  <ul class="recipients">
+    {rajlich.map((a) => (
+      <li class="card">
+        <span class="year">{a.data.year}</span>
+        <span><strong>{a.data.recipients.join(', ')}</strong>{a.data.affiliation && <span class="muted"><br />{a.data.affiliation}</span>}</span>
+      </li>
+    ))}
+  </ul>
+
+  <h2 id="distinguished">Distinguished papers</h2>
+  <p class="prose">
+    ACM SIGSOFT and IEEE TCSE distinguished paper awards recognize the top papers of each year's
+    technical program, as selected by the program committee.
+  </p>
+  {dpYears.map((y) => (
+    <>
+      <h3>{y}</h3>
+      <ul class="doc-list">
+        {distinguished.filter((a) => a.data.year === y).map((a) => (
+          <li>
+            <span>
+              {a.data.doi ? <a href={`https://doi.org/${a.data.doi}`}>{a.data.title}</a> : a.data.title}
+              <br /><span class="small muted">{a.data.recipients.join(', ')}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </>
+  ))}
+  <p class="small muted">
+    Distinguished paper lists are published on each year's conference website; this page collects the
+    years the steering committee has on record.
+  </p>
+</BaseLayout>
+
+<style>
+  .nowrap { white-space: nowrap; }
+  .recipients { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: var(--space-md); }
+  .recipients li { display: flex; gap: var(--space-md); align-items: flex-start; }
+  .year { font-family: var(--font-display); font-weight: 800; color: var(--accent); font-size: var(--step-1); line-height: 1.2; }
+</style>

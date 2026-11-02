@@ -1,0 +1,275 @@
+/* =============================================================================
+   Fonts — Manrope (headings). Self-hosted variable woff2, latin subset.
+   ========================================================================== */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/fonts/manrope-latin.woff2") format("woff2");
+}
+
+/* =============================================================================
+   Design tokens
+   ========================================================================== */
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Fluid type scale */
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+  --step-1: clamp(1.2rem, 1.13rem + 0.35vw, 1.4rem);
+  --step-2: clamp(1.44rem, 1.32rem + 0.6vw, 1.8rem);
+  --step-3: clamp(1.73rem, 1.53rem + 1vw, 2.3rem);
+  --step-4: clamp(2.07rem, 1.76rem + 1.6vw, 3rem);
+
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+
+  --content-width: 52rem;
+  --wide-width: 72rem;
+  --radius: 10px;
+
+  /* Light palette — ICPC blue. The conference has been blue since the
+     original lowercase "icpc" wordmark; this keeps that lineage. */
+  --bg: #ffffff;
+  --bg-subtle: #f2f6fb;
+  --card: #e9f0f9;
+  --surface: #ffffff;
+  --border: #d7e1ee;
+  --text: #0b1627;
+  --text-muted: #4b5b6e;
+  --brand: #1d5fbf;         /* header bar, buttons, underlines, accents */
+  --brand-hover: #174c99;
+  --accent: #1d5fbf;        /* link / interactive text on light */
+  --accent-hover: #2a6fd6;
+  --accent-contrast: #ffffff;
+  --amber: #f0a830;         /* the single warm accent, used sparingly */
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 16px rgba(16, 24, 40, 0.06);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0e1726;
+  --bg-subtle: #131e30;
+  --card: #182540;
+  --surface: #111b2c;
+  --border: #263449;
+  --text: #eef3fa;
+  --text-muted: #a3b2c6;
+  --brand: #6db1ff;
+  --brand-hover: #8cc3ff;
+  --accent: #6db1ff;
+  --accent-hover: #8cc3ff;
+  --accent-contrast: #0b2a4a;
+  --amber: #ffc14d;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Light is the default for everyone. Dark applies only when the visitor opts
+   in via the nav toggle, which sets data-theme="dark" and persists it. */
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.14;
+  letter-spacing: -0.018em;
+  color: var(--text);
+  margin: 0 0 var(--space-sm);
+  font-weight: 700;
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-4); }
+h2 { font-size: var(--step-2); margin-top: var(--space-xl); }
+h3 { font-size: var(--step-1); margin-top: var(--space-lg); }
+
+p { margin: 0 0 var(--space-md); }
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover { color: var(--accent-hover); }
+
+img { max-width: 100%; height: auto; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--space-lg) 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* =============================================================================
+   Layout helpers
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+.container.wide { max-width: var(--wide-width); }
+
+main {
+  padding-block: var(--space-lg) var(--space-xl);
+  min-height: 60vh;
+}
+main.flush { padding-block: 0; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--brand);
+  color: var(--accent-contrast);
+  padding: var(--space-xs) var(--space-md);
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+.muted { color: var(--text-muted); }
+.small { font-size: var(--step--1); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Page header: eyebrow + title + lead, shared by every inner page. */
+.page-head { margin-bottom: var(--space-lg); max-width: 44rem; }
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--space-xs);
+}
+.lead {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0 0 var(--space-md);
+}
+.prose { max-width: 44rem; }
+.prose p { text-align: justify; hyphens: auto; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-0);
+  padding: 0.6em 1.1em;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.btn-solid { background: var(--brand); color: var(--accent-contrast); }
+.btn-solid:hover { background: var(--brand-hover); color: var(--accent-contrast); }
+.btn-ghost { border-color: var(--border); color: var(--text); }
+.btn-ghost:hover { border-color: var(--brand); color: var(--accent); }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+.card h3 { margin-top: 0; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-md);
+}
+
+.tag {
+  display: inline-block;
+  font-size: var(--step--1);
+  padding: 0.1em 0.6em;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.tag-brand { background: var(--brand); border-color: var(--brand); color: var(--accent-contrast); }
+
+/* Tables */
+.table-wrap { overflow-x: auto; }
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+table.data th, table.data td {
+  text-align: left;
+  padding: 0.55em 0.75em;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+table.data th {
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+table.data tbody tr:hover { background: var(--bg-subtle); }
+
+/* Definition-style lists (document lists, award lists) */
+.doc-list { list-style: none; padding: 0; margin: 0; }
+.doc-list li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem var(--space-md);
+  align-items: baseline;
+}
+.doc-list li:first-child { border-top: 1px solid var(--border); }

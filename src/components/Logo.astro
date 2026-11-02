@@ -1,0 +1,18 @@
+---
+/**
+ * The ICPC mark. A neutral placeholder until the community logo vote picks a
+ * direction: swap the SVG body below for the winning mark from
+ * brand/logo-options/ (or point an <img> at public/brand/). Uses currentColor
+ * tokens so it follows the theme.
+ */
+interface Props { class?: string }
+const { class: cls } = Astro.props;
+---
+<svg class={cls} viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+  <rect x="4" y="4" width="92" height="92" rx="22" fill="var(--brand)" />
+  <g stroke-linecap="round" stroke-width="9" fill="none">
+    <path d="M28,36 H60" stroke="var(--accent-contrast)" />
+    <path d="M36,50 H72" stroke="var(--amber)" />
+    <path d="M28,64 H54" stroke="var(--accent-contrast)" />
+  </g>
+</svg>
