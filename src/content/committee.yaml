@@ -5,8 +5,7 @@
 # termEnds: the ICPC at which the current term ends
 #
 # Current roster as of the ICPC 2026 steering committee meeting (Rio de
-# Janeiro, April 2026). Members elected in 2026 are marked; confirm the
-# second 2026 seat and term years before publishing.
+# Janeiro, April 2026). Members elected in 2026 are marked.
 
 - id: kevin-moran
   name: Kevin Moran
@@ -52,6 +51,15 @@
   elected: 2026
   termEnds: 2029
   order: 5
+- id: nicole-novielli
+  name: Nicole Novielli
+  affiliation: University of Bari, Italy
+  url: https://collab.di.uniba.it/nicole/
+  status: current
+  term: 1
+  elected: 2026
+  termEnds: 2029
+  order: 6
 
 # ---------------------------------------------------------------- lifetime
 - id: vaclav-rajlich
