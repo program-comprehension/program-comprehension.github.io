@@ -43,9 +43,9 @@ dark theme is available from the toggle in the navigation bar.
 
 ### Logo
 
-`src/components/Logo.astro` currently renders a neutral placeholder mark. The candidate logos
+`src/components/Logo.astro` renders option B ("Clarity") as the interim mark. The candidate logos
 from the community vote are in `brand/logo-options/` (light and dark variants of each mark and
-lockup, plus the script that generated them). Once a direction is chosen, replace the SVG body in
+lockup, plus the script that generated them). If the vote picks another direction, replace the SVG body in
 `Logo.astro` and `public/favicon.svg` with the winning mark.
 
 ## Deployment

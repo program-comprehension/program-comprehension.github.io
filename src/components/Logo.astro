@@ -1,18 +1,21 @@
 ---
 /**
- * The ICPC mark. A neutral placeholder until the community logo vote picks a
- * direction: swap the SVG body below for the winning mark from
- * brand/logo-options/ (or point an <img> at public/brand/). Uses currentColor
- * tokens so it follows the theme.
+ * The ICPC mark: option B "Clarity" from brand/logo-options/ (fragments
+ * resolving into a whole). Drawn with theme tokens so it follows light/dark.
+ * If the community vote picks another direction, swap the SVG body for the
+ * winning mark's and update public/favicon.svg to match.
  */
 interface Props { class?: string }
 const { class: cls } = Astro.props;
 ---
 <svg class={cls} viewBox="0 0 100 100" aria-hidden="true" focusable="false">
   <rect x="4" y="4" width="92" height="92" rx="22" fill="var(--brand)" />
-  <g stroke-linecap="round" stroke-width="9" fill="none">
-    <path d="M28,36 H60" stroke="var(--accent-contrast)" />
-    <path d="M36,50 H72" stroke="var(--amber)" />
-    <path d="M28,64 H54" stroke="var(--accent-contrast)" />
+  <g fill="var(--accent-contrast)">
+    <rect x="22" y="27" width="15" height="11" rx="5.5" />
+    <rect x="42.5" y="27" width="15" height="11" rx="5.5" />
+    <rect x="63" y="27" width="15" height="11" rx="5.5" />
+    <rect x="22" y="45.5" width="25" height="11" rx="5.5" />
+    <rect x="53" y="45.5" width="25" height="11" rx="5.5" />
   </g>
+  <rect x="22" y="64" width="56" height="11" rx="5.5" fill="var(--amber)" />
 </svg>
