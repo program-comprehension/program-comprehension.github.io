@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils';
+import memoir from '../data/memoir.md?raw';
+const paragraphs = memoir.trim().split(/\n\s*\n/);
+---
+
+<BaseLayout title="History" description="The beginnings of ICPC: a memoir by Václav Rajlich on how a one-day workshop in 1992 grew into the conference.">
+  <div class="page-head">
+    <p class="eyebrow">History</p>
+    <h1>The beginnings of ICPC</h1>
+    <p class="lead">A memoir by Václav Rajlich, Ph.D.</p>
+    <p class="muted">Detroit, Michigan, USA · 23 March 2009</p>
+  </div>
+
+  <div class="layout">
+    <article class="prose memoir">
+      {paragraphs.map((p) => <p>{p}</p>)}
+    </article>
+    <aside class="milestones">
+      <h2>Milestones</h2>
+      <ol class="timeline">
+        <li><span class="y">1992</span> First Workshop on Program Comprehension, held with the Conference on Software Maintenance in Orlando</li>
+        <li><span class="y">1993</span> Second workshop, on Capri; the first steering committee is elected</li>
+        <li><span class="y">1998</span> Becomes the International Workshop on Program Comprehension (IWPC)</li>
+        <li><span class="y">2002</span> Václav Rajlich voted a permanent member of the steering committee</li>
+        <li><span class="y">2005</span> The IEEE Technical Committee on Software Engineering approves the change of name to ICPC</li>
+        <li><span class="y">2006</span> First International Conference on Program Comprehension, in Athens</li>
+        <li><span class="y">2018</span> ICPC begins its standing co-location with ICSE</li>
+        <li><span class="y">2024</span> First Václav Rajlich Early Career Achievement Award</li>
+      </ol>
+      <p class="small"><a href={withBase('/events')}>Every edition, 1992 to today →</a></p>
+      <h3>Early proceedings</h3>
+      <ul class="early">
+        <li><a href={withBase('/IWPC-1992.pdf')}>1992, Orlando</a></li>
+        <li><a href={withBase('/IWPC-1993.pdf')}>1993, Capri</a></li>
+        <li><a href={withBase('/IWPC-1994.pdf')}>1994, Washington DC</a></li>
+      </ul>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 18rem; gap: var(--space-xl); align-items: start; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+  .memoir p:first-of-type::first-letter {
+    font-family: var(--font-display); font-weight: 800; font-size: 3.2em; float: left; line-height: 0.85;
+    padding-right: 0.08em; color: var(--brand);
+  }
+  .milestones { position: sticky; top: 5rem; }
+  .milestones h2 { margin-top: 0; font-size: var(--step-1); }
+  .timeline { list-style: none; padding: 0; margin: 0 0 var(--space-md); border-left: 2px solid var(--border); }
+  .timeline li { padding: 0.35rem 0 0.35rem 1rem; position: relative; font-size: var(--step--1); }
+  .timeline li::before { content: ''; position: absolute; left: -6px; top: 0.85rem; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); }
+  .y { display: block; font-family: var(--font-display); font-weight: 700; color: var(--accent); }
+  .early { list-style: none; padding: 0; margin: 0; font-size: var(--step--1); }
+</style>

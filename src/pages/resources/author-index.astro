@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils';
+import entries from '../../data/author-index.json';
+
+const years = [...new Set(entries.map((e) => e.year))].sort();
+const letters = [...new Set(entries.map((e) => e.name[0].toUpperCase()))].sort();
+// Shipped once as JSON for the client-side filter; ~1000 rows is small.
+const rows = entries.map((e) => ({ n: e.name, y: e.year, p: e.page }));
+---
+
+<BaseLayout title="Author Index" description="Searchable author index of WPC, IWPC and ICPC proceedings, 1992 to 2006.">
+  <div class="page-head">
+    <p class="eyebrow"><a href={withBase('/resources')}>Resources</a> / Author index</p>
+    <h1>Author index, 1992 to 2006</h1>
+    <p class="lead">
+      Every author in the first fourteen editions, with the year and first page of each paper.
+      Filter by name, year, or initial.
+    </p>
+  </div>
+
+  <form class="filters" id="filters" role="search" onsubmit="return false">
+    <label class="visually-hidden" for="q">Search by author name</label>
+    <input id="q" type="search" placeholder="Search names, e.g. Rajlich" autocomplete="off" />
+    <label class="visually-hidden" for="year">Year</label>
+    <select id="year">
+      <option value="">All years</option>
+      {years.map((y) => <option value={y}>{y}</option>)}
+    </select>
+  </form>
+  <nav class="letters" aria-label="Filter by initial">
+    <button type="button" data-letter="" class="active">All</button>
+    {letters.map((l) => <button type="button" data-letter={l}>{l}</button>)}
+  </nav>
+
+  <p class="small muted" id="count" aria-live="polite"></p>
+  <div class="table-wrap">
+    <table class="data" id="index">
+      <thead><tr><th>Author</th><th>Year</th><th>Page</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <script is:inline type="application/json" id="data" set:html={JSON.stringify(rows)} />
+</BaseLayout>
+
+<style>
+  .filters { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-sm); }
+  .filters input, .filters select {
+    font: inherit; padding: 0.5em 0.75em; border: 1px solid var(--border); border-radius: 8px;
+    background: var(--surface); color: var(--text); min-width: 0;
+  }
+  .filters input { flex: 1 1 16rem; }
+  .letters { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-bottom: var(--space-md); }
+  .letters button {
+    font: inherit; font-size: var(--step--1); padding: 0.2em 0.6em; border-radius: 6px;
+    border: 1px solid var(--border); background: var(--surface); color: var(--text-muted); cursor: pointer;
+  }
+  .letters button:hover { color: var(--accent); border-color: var(--brand); }
+  .letters button.active { background: var(--brand); border-color: var(--brand); color: var(--accent-contrast); }
+</style>
+
+<script>
+  type Row = { n: string; y: number; p: string };
+  const data: Row[] = JSON.parse(document.getElementById('data')!.textContent || '[]');
+  const q = document.getElementById('q') as HTMLInputElement;
+  const year = document.getElementById('year') as HTMLSelectElement;
+  const tbody = document.getElementById('rows')!;
+  const count = document.getElementById('count')!;
+  const letterBtns = [...document.querySelectorAll<HTMLButtonElement>('.letters button')];
+  let letter = '';
+
+  const fold = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+  function render() {
+    const needle = fold(q.value.trim());
+    const y = year.value ? Number(year.value) : 0;
+    const hits = data.filter((r) =>
+      (!needle || fold(r.n).includes(needle)) &&
+      (!y || r.y === y) &&
+      (!letter || r.n[0].toUpperCase() === letter)
+    );
+    tbody.innerHTML = hits
+      .map((r) => `<tr><td>${esc(r.n)}</td><td>${r.y}</td><td>${esc(r.p)}</td></tr>`)
+      .join('');
+    count.textContent = `${hits.length.toLocaleString('en-US')} of ${data.length.toLocaleString('en-US')} entries`;
+  }
+  function esc(s: string) {
+    return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  }
+
+  q.addEventListener('input', render);
+  year.addEventListener('change', render);
+  letterBtns.forEach((b) =>
+    b.addEventListener('click', () => {
+      letter = b.dataset.letter || '';
+      letterBtns.forEach((x) => x.classList.toggle('active', x === b));
+      render();
+    })
+  );
+  render();
+</script>

@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EventCard from '../components/EventCard.astro';
+import { ordinal, withBase, isUpcoming } from '../utils';
+
+const events = (await getCollection('events')).sort((a, b) => b.data.year - a.data.year);
+const upcoming = events.filter((e) => isUpcoming(e.data)).reverse();
+const past = events.filter((e) => !isUpcoming(e.data));
+const href = (p?: string) => (p?.startsWith('/') ? withBase(p) : p);
+---
+
+<BaseLayout title="Events" description="Every edition of ICPC, IWPC and WPC since 1992, with websites and proceedings.">
+  <div class="page-head">
+    <p class="eyebrow">Events</p>
+    <h1>Conference editions</h1>
+    <p class="lead">
+      The series began as the Workshop on Program Comprehension in 1992, became the
+      International Workshop (IWPC) in 1998, and has been the International Conference on
+      Program Comprehension since 2006. Since 2018 it has been co-located with ICSE.
+    </p>
+  </div>
+
+  <h2 style="margin-top:0">Upcoming</h2>
+  <div class="card-grid">
+    {upcoming.map((e) => <EventCard event={e.data} featured />)}
+  </div>
+
+  <h2>Past editions</h2>
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr><th>Edition</th><th>Year</th><th>Dates</th><th>Location</th><th>Links</th></tr>
+      </thead>
+      <tbody>
+        {past.map((e) => (
+          <tr>
+            <td>{ordinal(e.data.number)} {e.data.series}</td>
+            <td>{e.data.year}</td>
+            <td>{e.data.dates}</td>
+            <td>{e.data.location}</td>
+            <td class="links">
+              {e.data.site && <a href={e.data.site}>Website</a>}
+              {e.data.site && e.data.proceedings && ' · '}
+              {e.data.proceedings && <a href={href(e.data.proceedings)}>Proceedings</a>}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">
+    Proceedings for 1992 to 1994 are scanned tables of contents. Proceedings from 1997 onward are in the
+    <a href="https://www.computer.org/csdl/proceedings/icpc">IEEE Computer Society Digital Library</a> and,
+    for recent years, the <a href="https://dl.acm.org/conference/icpc">ACM Digital Library</a>.
+  </p>
+</BaseLayout>
+
+<style>
+  .links { white-space: nowrap; }
+</style>

@@ -1,0 +1,145 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EventCard from '../components/EventCard.astro';
+import { SITE } from '../consts';
+import { withBase, formatDate, isUpcoming } from '../utils';
+
+const events = (await getCollection('events')).sort((a, b) => b.data.year - a.data.year);
+const upcoming = events.filter((e) => isUpcoming(e.data)).reverse();
+const recent = events.filter((e) => !isUpcoming(e.data)).slice(0, 3);
+const news = (await getCollection('news')).sort((a, b) => b.data.date.localeCompare(a.data.date)).slice(0, 4);
+const first = events[events.length - 1];
+---
+
+<BaseLayout bare>
+  <section class="hero">
+    <div class="container wide hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">{SITE.sponsor}</p>
+        <h1>Understanding software,<br class="wide-only" /> one program at a time</h1>
+        <p class="lead">
+          Program comprehension is a vital software engineering and maintenance activity. It
+          is necessary to facilitate reuse, inspection, maintenance, reverse engineering,
+          reengineering, migration, and extension of existing software systems.
+        </p>
+        <p class="lead-sub">
+          ICPC, formerly IWPC, gives researchers and industry practitioners a venue to present
+          and discuss both the state of the art and the state of the practice in the general
+          area of program comprehension. The series began as a one-day workshop in {first.data.location.split(',')[0]} in {first.data.year}.
+        </p>
+        <div class="cta">
+          <a class="btn btn-solid" href={withBase('/events')}>Upcoming and past editions</a>
+          <a class="btn btn-ghost" href={withBase('/hosting')}>Host a future ICPC</a>
+        </div>
+      </div>
+      <svg class="hero-motif" viewBox="0 0 320 240" aria-hidden="true" focusable="false">
+        <rect class="m-panel" x="8" y="24" width="304" height="192" rx="12" />
+        <g class="m-dot"><circle cx="26" cy="42" r="3.5" /><circle cx="38" cy="42" r="3.5" /><circle cx="50" cy="42" r="3.5" /></g>
+        <g class="m-code">
+          <rect class="m-line" x="28" y="70" width="90" height="7" rx="3.5" />
+          <rect class="m-line" x="40" y="88" width="140" height="7" rx="3.5" />
+          <rect class="m-line hi" x="40" y="106" width="110" height="7" rx="3.5" />
+          <rect class="m-line" x="52" y="124" width="160" height="7" rx="3.5" />
+          <rect class="m-line" x="40" y="142" width="70" height="7" rx="3.5" />
+          <rect class="m-line" x="28" y="160" width="40" height="7" rx="3.5" />
+          <rect class="m-line" x="28" y="184" width="120" height="7" rx="3.5" />
+        </g>
+        <g class="m-lens">
+          <circle cx="220" cy="110" r="46" />
+          <path d="M254 144 L292 182" />
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container wide">
+      <div class="section-head">
+        <h2>{upcoming.length === 1 ? 'Next edition' : 'Upcoming editions'}</h2>
+        <a href={withBase('/events')} class="small">All editions since 1992 →</a>
+      </div>
+      <div class="card-grid">
+        {upcoming.map((e) => <EventCard event={e.data} featured />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt">
+    <div class="container wide two-col">
+      <div>
+        <h2>News</h2>
+        <ul class="news-list">
+          {news.map((n) => (
+            <li>
+              <time datetime={n.data.date} class="small muted">{formatDate(n.data.date)}</time>
+              <p class="news-title">
+                {n.data.url ? <a href={n.data.url.startsWith('/') ? withBase(n.data.url) : n.data.url}>{n.data.title}</a> : n.data.title}
+              </p>
+              {n.data.body && <p class="small muted">{n.data.body}</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2>Recent editions</h2>
+        <ul class="recent-list">
+          {recent.map((e) => (
+            <li>
+              <span class="recent-year">{e.data.year}</span>
+              <span>
+                <strong>{e.data.location}</strong>
+                <span class="small muted">
+                  {e.data.site && <> · <a href={e.data.site}>website</a></>}
+                  {e.data.proceedings && <> · <a href={e.data.proceedings.startsWith('/') ? withBase(e.data.proceedings) : e.data.proceedings}>proceedings</a></>}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <h2>Quick links</h2>
+        <ul class="quick-links">
+          <li><a href={withBase('/committee')}>Steering committee</a></li>
+          <li><a href={withBase('/governance')}>Charter and governance documents</a></li>
+          <li><a href={withBase('/awards')}>Most Influential Paper and other awards</a></li>
+          <li><a href={withBase('/history')}>How ICPC began</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding-block: var(--space-xl); background: linear-gradient(180deg, var(--bg-subtle), var(--bg)); border-bottom: 1px solid var(--border); }
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--space-xl); align-items: center; }
+  .hero h1 { margin-bottom: var(--space-md); }
+  .lead-sub { color: var(--text-muted); }
+  .cta { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-md); }
+  .hero-motif { width: 100%; max-width: 380px; justify-self: center; }
+  .m-panel { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+  .m-dot circle { fill: var(--border); }
+  .m-line { fill: var(--border); }
+  .m-line.hi { fill: var(--amber); }
+  .m-lens circle { fill: color-mix(in srgb, var(--brand) 10%, transparent); stroke: var(--brand); stroke-width: 7; }
+  .m-lens path { stroke: var(--brand); stroke-width: 10; stroke-linecap: round; }
+  @media (max-width: 760px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-motif { max-width: 260px; }
+    .wide-only { display: none; }
+  }
+  .band { padding-block: var(--space-xl); }
+  .band.alt { background: var(--bg-subtle); border-top: 1px solid var(--border); }
+  .band h2 { margin-top: 0; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-md); }
+  .section-head h2 { margin: 0; }
+  .two-col { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--space-xl); }
+  .two-col h2 + h2, .two-col ul + h2 { margin-top: var(--space-lg); }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+  .news-list, .recent-list, .quick-links { list-style: none; margin: 0; padding: 0; }
+  .news-list li { padding: var(--space-sm) 0; border-top: 1px solid var(--border); }
+  .news-list p { margin: 0; }
+  .news-title { font-weight: 600; }
+  .recent-list li { display: flex; gap: var(--space-md); padding: var(--space-xs) 0; border-top: 1px solid var(--border); }
+  .recent-year { font-family: var(--font-display); font-weight: 700; color: var(--accent); min-width: 3.2rem; font-variant-numeric: tabular-nums; }
+  .quick-links li { padding: 0.2rem 0; }
+</style>

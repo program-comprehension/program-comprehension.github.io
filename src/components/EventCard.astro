@@ -1,0 +1,43 @@
+---
+import { ordinal, seriesName, withBase } from '../utils';
+interface Props {
+  event: {
+    number: number; series: string; year: number; dates: string; location: string;
+    site?: string; proceedings?: string; colocated?: string;
+    generalChairs: string[]; programChairs: string[];
+  };
+  featured?: boolean;
+}
+const { event: e, featured = false } = Astro.props;
+const proceedingsHref = e.proceedings?.startsWith('/') ? withBase(e.proceedings) : e.proceedings;
+---
+<article class:list={['card', 'event-card', { featured }]}>
+  <p class="eyebrow">{ordinal(e.number)} {seriesName(e.series)}</p>
+  <h3>{e.series} {e.year}</h3>
+  <p class="when-where">
+    <strong>{e.dates}, {e.year}</strong><br />
+    {e.location}
+    {e.colocated && <span class="muted"> · co-located with {e.colocated}</span>}
+  </p>
+  {(e.generalChairs.length > 0 || e.programChairs.length > 0) && (
+    <dl class="chairs small">
+      {e.generalChairs.length > 0 && <><dt>General chair{e.generalChairs.length > 1 ? 's' : ''}</dt><dd>{e.generalChairs.join(', ')}</dd></>}
+      {e.programChairs.length > 0 && <><dt>Program chair{e.programChairs.length > 1 ? 's' : ''}</dt><dd>{e.programChairs.join(', ')}</dd></>}
+    </dl>
+  )}
+  <p class="links">
+    {e.site && <a class="btn btn-solid" href={e.site}>Conference website</a>}
+    {proceedingsHref && <a class="btn btn-ghost" href={proceedingsHref}>Proceedings</a>}
+  </p>
+</article>
+<style>
+  .event-card { display: flex; flex-direction: column; gap: 0.25rem; }
+  .event-card.featured { border-color: var(--brand); border-width: 2px; background: var(--surface); }
+  .event-card h3 { font-size: var(--step-2); margin: 0; }
+  .when-where { margin: 0.25rem 0; }
+  .chairs { margin: 0.25rem 0; display: grid; grid-template-columns: auto 1fr; gap: 0.1rem 0.75rem; }
+  .chairs dt { color: var(--text-muted); }
+  .chairs dd { margin: 0; }
+  .links { display: flex; gap: var(--space-xs); flex-wrap: wrap; margin: var(--space-sm) 0 0; }
+  .links .btn { font-size: var(--step--1); padding: 0.45em 0.9em; }
+</style>

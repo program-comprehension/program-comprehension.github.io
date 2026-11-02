@@ -1,0 +1,42 @@
+# Governance documents. Files live in public/. Mark exactly one
+# version of each document `current: true`; older versions stay listed as history.
+- id: charter-1-4
+  title: Steering Committee Charter
+  version: "1.4"
+  adopted: "Modified January 2025"
+  file: /ICPC-Charter-v1.4.pdf
+  current: true
+  summary: Purpose, composition, elections, terms, code of ethics and procedures of the ICPC Steering Committee.
+  order: 1
+- id: charter-1-3
+  title: Steering Committee Charter
+  version: "1.3"
+  adopted: "April 2017"
+  file: /ICPC-Charter-v1.3.pdf
+  order: 2
+- id: charter-1-2
+  title: Steering Committee Charter
+  version: "1.2"
+  file: /ICPC-Charter-v1.2.pdf
+  order: 3
+- id: pc-guidelines-1-1
+  title: Guidelines for Program Committee Selection and Composition
+  version: "1.1"
+  adopted: "January 2006"
+  file: /ICPC-ProgramCommittee-v1.1.pdf
+  current: true
+  summary: How program chairs assemble a balanced, qualified program committee.
+  order: 10
+- id: submissions-1-1
+  title: Guidelines for Conference Submissions
+  version: "1.1"
+  adopted: "April 2017"
+  file: /ICPC-Submissions-v1.1.pdf
+  current: true
+  summary: Expectations for submitted papers, reviewing, and the tracks of the conference.
+  order: 20
+- id: submissions-1-0
+  title: Guidelines for Conference Submissions
+  version: "1.0"
+  file: /ICPC-Submissions-v1.0.pdf
+  order: 21

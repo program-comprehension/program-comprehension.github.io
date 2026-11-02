@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils';
+
+const docs = (await getCollection('documents')).sort((a, b) => a.data.order - b.data.order);
+const current = docs.filter((d) => d.data.current);
+const older = docs.filter((d) => !d.data.current);
+---
+
+<BaseLayout title="Governance" description="The ICPC steering committee charter and the guidelines that govern program committees and submissions.">
+  <div class="page-head">
+    <p class="eyebrow">Governance</p>
+    <h1>Governance documents</h1>
+    <p class="lead">
+      ICPC is overseen by its steering committee under a charter first adopted in April 2006.
+      The committee represents ICPC to the IEEE Computer Society, approves proposals for future
+      editions, appoints general and program chairs, and hears complaints and appeals.
+    </p>
+  </div>
+
+  <h2 style="margin-top:0">Current documents</h2>
+  <div class="card-grid">
+    {current.map((d) => (
+      <article class="card">
+        <h3><a href={withBase(d.data.file)}>{d.data.title}</a></h3>
+        <p class="small muted">Version {d.data.version}{d.data.adopted && ` · ${d.data.adopted}`}</p>
+        {d.data.summary && <p>{d.data.summary}</p>}
+        <a class="btn btn-ghost" href={withBase(d.data.file)}>Download PDF</a>
+      </article>
+    ))}
+  </div>
+
+  <h2>How the committee works</h2>
+  <div class="prose">
+    <p>
+      The committee has six elected members who choose a chair from among themselves. At least two
+      seats are open for election at every ICPC. Anyone who has authored an accepted paper, served
+      on the program committee or steering committee in the last five years, chaired the conference
+      in the last ten years, or is registered for the current conference may vote. Nominations are
+      taken at the open steering committee meeting, and write-in candidates are welcome.
+    </p>
+    <p>
+      Decisions are made by majority vote with at least four votes cast. Members follow a code of
+      ethics that asks for openness, prompt responses, disclosure of conflicts of interest, and the
+      recognition that they are caretakers of ICPC rather than its owners.
+    </p>
+  </div>
+
+  <h2>Earlier versions</h2>
+  <ul class="doc-list">
+    {older.map((d) => (
+      <li>
+        <a href={withBase(d.data.file)}>{d.data.title}, version {d.data.version}</a>
+        {d.data.adopted && <span class="small muted">{d.data.adopted}</span>}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 128" width="560" height="128">
+<g transform="translate(0,0)"><g fill="none" stroke="#6DB1FF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5,28 V66"/><path d="M57.36,30.68 A20,20 0 1 0 57.36,61.32"/><path d="M74.37575219373079,26 V86"/><circle cx="94.37575219373079" cy="46" r="20"/><path d="M166.23,30.68 A20,20 0 1 0 166.23,61.32"/></g><circle cx="5.5" cy="9" r="7" fill="#FFC14D"/></g><text x="0" y="118" font-family="Manrope, Helvetica Neue, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="0.5" fill="#F3F7FC">IEEE International Conference on Program Comprehension</text>
+</svg>

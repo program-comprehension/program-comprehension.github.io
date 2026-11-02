@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.program-comprehension.org/sitemap-index.xml
