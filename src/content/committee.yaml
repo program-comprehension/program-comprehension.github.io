@@ -8,6 +8,7 @@
 # Janeiro, April 2026). Members elected in 2026 are marked.
 
 - id: kevin-moran
+  photo: /images/people/kevin-moran.png
   name: Kevin Moran
   affiliation: University of Central Florida, USA
   url: https://www.kpmoran.com/
@@ -17,6 +18,7 @@
   termEnds: 2027
   order: 1
 - id: ali-ouni
+  photo: /images/people/ali-ouni.png
   name: Ali Ouni
   affiliation: ÉTS Montréal, Université du Québec, Canada
   url: https://www.etsmtl.ca/etudier-a-lets/corps-enseignant/aouni
@@ -25,6 +27,7 @@
   termEnds: 2027
   order: 2
 - id: coen-de-roover
+  photo: /images/people/coen-de-roover.jpg
   name: Coen De Roover
   affiliation: Vrije Universiteit Brussel, Belgium
   url: https://soft.vub.ac.be/~cderoove/
@@ -34,6 +37,7 @@
   termEnds: 2028
   order: 3
 - id: gema-rodriguez-perez
+  photo: /images/people/gema-rodriguez-perez.png
   name: Gema Rodríguez-Pérez
   affiliation: University of British Columbia, Okanagan, Canada
   url: https://gemarodri.github.io/
@@ -43,6 +47,7 @@
   termEnds: 2028
   order: 4
 - id: masud-rahman
+  photo: /images/people/masud-rahman.jpg
   name: Mohammad Masudur Rahman
   affiliation: Dalhousie University, Canada
   url: https://www.cs.dal.ca/~masud/
@@ -52,6 +57,7 @@
   termEnds: 2029
   order: 5
 - id: nicole-novielli
+  photo: /images/people/nicole-novielli.jpg
   name: Nicole Novielli
   affiliation: University of Bari, Italy
   url: https://collab.di.uniba.it/nicole/

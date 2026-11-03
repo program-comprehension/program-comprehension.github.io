@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils';
 
 const all = await getCollection('awards');
 const byYear = (a: typeof all[number], b: typeof all[number]) => b.data.year - a.data.year;
@@ -58,9 +59,17 @@ const dpYears = [...new Set(distinguished.map((a) => a.data.year))];
   </div>
   <ul class="recipients">
     {rajlich.map((a) => (
-      <li class="card">
-        <span class="year">{a.data.year}</span>
-        <span><strong>{a.data.recipients.join(', ')}</strong>{a.data.affiliation && <span class="muted"><br />{a.data.affiliation}</span>}</span>
+      <li class="card recipient">
+        {a.data.photo ? (
+          <img class="portrait" src={withBase(a.data.photo)} alt={`Portrait of ${a.data.recipients.join(', ')}`} width="88" height="88" loading="lazy" />
+        ) : (
+          <span class="portrait placeholder" aria-hidden="true">{a.data.recipients[0].split(' ').map((w) => w[0]).slice(0, 2).join('')}</span>
+        )}
+        <span>
+          <span class="year">{a.data.year}</span><br />
+          <strong>{a.data.recipients.join(', ')}</strong>
+          {a.data.affiliation && <span class="muted"><br />{a.data.affiliation}</span>}
+        </span>
       </li>
     ))}
   </ul>
@@ -94,6 +103,8 @@ const dpYears = [...new Set(distinguished.map((a) => a.data.year))];
 <style>
   .nowrap { white-space: nowrap; }
   .recipients { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: var(--space-md); }
-  .recipients li { display: flex; gap: var(--space-md); align-items: flex-start; }
+  .recipients li { display: flex; gap: var(--space-md); align-items: center; }
+  .recipients .portrait { flex: none; width: 5.5rem; height: 5.5rem; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface); box-shadow: var(--shadow); background: var(--bg-subtle); }
+  .recipients .placeholder { display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; color: var(--text-muted); }
   .year { font-family: var(--font-display); font-weight: 800; color: var(--accent); font-size: var(--step-1); line-height: 1.2; }
 </style>

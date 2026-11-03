@@ -3,14 +3,15 @@
 export const SITE = {
   name: 'ICPC',
   brand: 'ICPC',
-  fullName: 'IEEE International Conference on Program Comprehension',
-  title: 'ICPC — IEEE International Conference on Program Comprehension',
+  fullName: 'IEEE/ACM International Conference on Program Comprehension',
+  title: 'ICPC — IEEE/ACM International Conference on Program Comprehension',
   description:
-    'The IEEE International Conference on Program Comprehension (ICPC) is the premier ' +
+    'The IEEE/ACM International Conference on Program Comprehension (ICPC) is the premier ' +
     'venue for research on how people and tools understand software. This is the site ' +
     'of the ICPC steering committee: upcoming and past editions, governance, awards, ' +
     'and how to host a future ICPC.',
-  sponsor: 'An IEEE Computer Society sponsored venue',
+  sponsor: 'IEEE/ACM International Conference on Program Comprehension',
+  tagline: 'Working Towards a Better Understanding of Software for Humans in the AI Era',
   // The steering committee's shared address. Written reversed in the source of
   // the old site to foil scrapers; shown here through the Obfuscated component.
   contactEmail: 'icpc-sc@googlegroups.com',

@@ -117,16 +117,19 @@
   award: rajlich
   year: 2026
   recipients: [Marvin Wyrich]
+  photo: /images/people/marvin-wyrich.png
   affiliation: Saarland University, Germany
 - id: rajlich-2025
   award: rajlich
   year: 2025
   recipients: [Yu Huang]
+  photo: /images/people/yu-huang.jpg
   affiliation: Vanderbilt University, USA
 - id: rajlich-2024
   award: rajlich
   year: 2024
   recipients: [Fernanda Madeiral]
+  photo: /images/people/fernanda-madeiral.jpg
   affiliation: Vrije Universiteit Amsterdam, Netherlands
 
 # ------------------------------------------------------------ Distinguished Papers

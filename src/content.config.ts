@@ -27,6 +27,7 @@ const committee = defineCollection({
     affiliation: z.string().optional(),
     url: z.string().url().optional(),
     role: z.string().optional(), // "Chair", "Secretary"
+    photo: z.string().optional(), // path under public/, e.g. /images/people/x.jpg
     status: z.enum(['current', 'alumni', 'lifetime']).default('current'),
     term: z.number().optional(), // 1 or 2
     termEnds: z.number().optional(), // year the current term ends
@@ -58,6 +59,7 @@ const awards = defineCollection({
     title: z.string().optional(), // paper title, or omitted for people awards
     recipients: z.array(z.string()),
     affiliation: z.string().optional(),
+    photo: z.string().optional(),
     originalYear: z.number().optional(), // MIP: year the paper appeared
     originalSeries: z.string().optional(),
     doi: z.string().optional(),

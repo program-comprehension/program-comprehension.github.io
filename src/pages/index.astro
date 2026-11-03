@@ -17,7 +17,7 @@ const first = events[events.length - 1];
     <div class="container wide hero-inner">
       <div class="hero-text">
         <p class="eyebrow">{SITE.sponsor}</p>
-        <h1>Understanding software,<br class="wide-only" /> one program at a time</h1>
+        <h1>{SITE.tagline}</h1>
         <p class="lead">
           Program comprehension is a vital software engineering and maintenance activity. It
           is necessary to facilitate reuse, inspection, maintenance, reverse engineering,
@@ -33,21 +33,32 @@ const first = events[events.length - 1];
           <a class="btn btn-ghost" href={withBase('/hosting')}>Host a future ICPC</a>
         </div>
       </div>
-      <svg class="hero-motif" viewBox="0 0 320 240" aria-hidden="true" focusable="false">
-        <rect class="m-panel" x="8" y="24" width="304" height="192" rx="12" />
+      {/* A reader and the code they are making sense of. The lens travels down the
+          listing, each line turns amber as it is understood, and a spark appears by
+          the reader's head once the whole function is clear. Drawn inline with theme
+          tokens; the animation loops on its own and stops under prefers-reduced-motion. */}
+      <svg class="hero-motif" viewBox="0 0 400 260" aria-hidden="true" focusable="false">
+        <rect class="m-panel" x="8" y="24" width="236" height="208" rx="12" />
         <g class="m-dot"><circle cx="26" cy="42" r="3.5" /><circle cx="38" cy="42" r="3.5" /><circle cx="50" cy="42" r="3.5" /></g>
         <g class="m-code">
-          <rect class="m-line" x="28" y="70" width="90" height="7" rx="3.5" />
-          <rect class="m-line" x="40" y="88" width="140" height="7" rx="3.5" />
-          <rect class="m-line hi" x="40" y="106" width="110" height="7" rx="3.5" />
-          <rect class="m-line" x="52" y="124" width="160" height="7" rx="3.5" />
-          <rect class="m-line" x="40" y="142" width="70" height="7" rx="3.5" />
-          <rect class="m-line" x="28" y="160" width="40" height="7" rx="3.5" />
-          <rect class="m-line" x="28" y="184" width="120" height="7" rx="3.5" />
+          <rect class="m-line" style="--i:0" x="28" y="70" width="90" height="7" rx="3.5" />
+          <rect class="m-line" style="--i:1" x="40" y="94" width="150" height="7" rx="3.5" />
+          <rect class="m-line" style="--i:2" x="40" y="118" width="110" height="7" rx="3.5" />
+          <rect class="m-line" style="--i:3" x="52" y="142" width="160" height="7" rx="3.5" />
+          <rect class="m-line" style="--i:4" x="40" y="166" width="70" height="7" rx="3.5" />
+          <rect class="m-line" style="--i:5" x="28" y="190" width="44" height="7" rx="3.5" />
         </g>
         <g class="m-lens">
-          <circle cx="220" cy="110" r="46" />
-          <path d="M254 144 L292 182" />
+          <circle cx="206" cy="73" r="28" />
+          <path d="M226 93 L246 113" />
+        </g>
+        <g class="m-reader">
+          <path class="m-body" d="M268 232 C268 196 298 180 322 180 C346 180 376 196 376 232 Z" />
+          <circle class="m-head" cx="322" cy="146" r="24" />
+          <g class="m-spark">
+            <circle cx="360" cy="112" r="5" />
+            <path d="M360 97 V103 M360 121 V127 M345 112 H351 M369 112 H375" />
+          </g>
         </g>
       </svg>
     </div>
@@ -115,16 +126,74 @@ const first = events[events.length - 1];
   .hero h1 { margin-bottom: var(--space-md); }
   .lead-sub { color: var(--text-muted); }
   .cta { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-md); }
-  .hero-motif { width: 100%; max-width: 380px; justify-self: center; }
+  .hero-motif { width: 100%; max-width: 420px; justify-self: center; }
   .m-panel { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
   .m-dot circle { fill: var(--border); }
-  .m-line { fill: var(--border); }
-  .m-line.hi { fill: var(--amber); }
-  .m-lens circle { fill: color-mix(in srgb, var(--brand) 10%, transparent); stroke: var(--brand); stroke-width: 7; }
-  .m-lens path { stroke: var(--brand); stroke-width: 10; stroke-linecap: round; }
+  .m-line { fill: var(--border); transform-box: fill-box; transform-origin: left center; }
+  .m-lens circle { fill: color-mix(in srgb, var(--brand) 10%, transparent); stroke: var(--brand); stroke-width: 6; }
+  .m-lens path { stroke: var(--brand); stroke-width: 9; stroke-linecap: round; }
+  .m-lens { transform-box: fill-box; transform-origin: center; }
+  .m-body { fill: color-mix(in srgb, var(--brand) 18%, transparent); stroke: var(--brand); stroke-width: 4; }
+  .m-head { fill: var(--surface); stroke: var(--brand); stroke-width: 4; }
+  .m-reader { transform-box: fill-box; transform-origin: center bottom; }
+  .m-spark circle { fill: var(--amber); }
+  .m-spark path { stroke: var(--amber); stroke-width: 3; stroke-linecap: round; }
+  .m-spark { opacity: 0; transform-box: fill-box; transform-origin: center; }
+
+  /* One 12s cycle: lines type in (0-2s), the lens reads them top to bottom and
+     each turns amber as it passes (2-9s), the spark fires (9-11s), then reset. */
+  @media (prefers-reduced-motion: no-preference) {
+    .m-line { animation: type 12s ease-out infinite; animation-delay: calc(var(--i) * 0.25s); }
+    .m-lens { animation: read 12s ease-in-out infinite; }
+    .m-reader { animation: breathe 4s ease-in-out infinite; }
+    .m-spark { animation: spark 12s ease-out infinite; }
+  }
+  @keyframes type {
+    0% { transform: scaleX(0); fill: var(--border); }
+    4% { transform: scaleX(1); fill: var(--border); }
+    /* turn amber as the lens arrives: line i is reached at 20% + i*9% */
+    19% { fill: var(--border); }
+    20% { fill: var(--amber); }
+    92% { fill: var(--amber); transform: scaleX(1); }
+    96%, 100% { fill: var(--border); transform: scaleX(1); }
+  }
+  /* Each line gets its own colour timing by shifting the whole timeline. */
+  .m-line[style*="--i:1"] { animation-name: type1; }
+  .m-line[style*="--i:2"] { animation-name: type2; }
+  .m-line[style*="--i:3"] { animation-name: type3; }
+  .m-line[style*="--i:4"] { animation-name: type4; }
+  .m-line[style*="--i:5"] { animation-name: type5; }
+  @keyframes type1 { 0% { transform: scaleX(0); fill: var(--border);} 4% { transform: scaleX(1); fill: var(--border);} 28% { fill: var(--border);} 29% { fill: var(--amber);} 92% { fill: var(--amber);} 96%,100% { fill: var(--border);} }
+  @keyframes type2 { 0% { transform: scaleX(0); fill: var(--border);} 4% { transform: scaleX(1); fill: var(--border);} 37% { fill: var(--border);} 38% { fill: var(--amber);} 92% { fill: var(--amber);} 96%,100% { fill: var(--border);} }
+  @keyframes type3 { 0% { transform: scaleX(0); fill: var(--border);} 4% { transform: scaleX(1); fill: var(--border);} 46% { fill: var(--border);} 47% { fill: var(--amber);} 92% { fill: var(--amber);} 96%,100% { fill: var(--border);} }
+  @keyframes type4 { 0% { transform: scaleX(0); fill: var(--border);} 4% { transform: scaleX(1); fill: var(--border);} 55% { fill: var(--border);} 56% { fill: var(--amber);} 92% { fill: var(--amber);} 96%,100% { fill: var(--border);} }
+  @keyframes type5 { 0% { transform: scaleX(0); fill: var(--border);} 4% { transform: scaleX(1); fill: var(--border);} 64% { fill: var(--border);} 65% { fill: var(--amber);} 92% { fill: var(--amber);} 96%,100% { fill: var(--border);} }
+  @keyframes read {
+    0%, 17% { transform: translateY(0); }
+    20% { transform: translateY(0); }
+    29% { transform: translateY(24px); }
+    38% { transform: translateY(48px); }
+    47% { transform: translateY(72px); }
+    56% { transform: translateY(96px); }
+    65% { transform: translateY(120px); }
+    75% { transform: translateY(120px); }
+    92% { transform: translateY(120px); }
+    100% { transform: translateY(0); }
+  }
+  @keyframes breathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  @keyframes spark {
+    0%, 72% { opacity: 0; transform: scale(0.4); }
+    76% { opacity: 1; transform: scale(1.15); }
+    80% { transform: scale(1); }
+    90% { opacity: 1; }
+    95%, 100% { opacity: 0; transform: scale(0.4); }
+  }
   @media (max-width: 760px) {
     .hero-inner { grid-template-columns: 1fr; }
-    .hero-motif { max-width: 260px; }
+    .hero-motif { max-width: 300px; }
     .wide-only { display: none; }
   }
   .band { padding-block: var(--space-xl); }

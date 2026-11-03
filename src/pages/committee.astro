@@ -34,6 +34,11 @@ const termLabel = (t?: number) => (t === 1 ? '1st term' : t === 2 ? '2nd term' :
   <ul class="members">
     {current.map((m) => (
       <li class="card member">
+        {m.data.photo ? (
+          <img class="portrait" src={withBase(m.data.photo)} alt={`Portrait of ${m.data.name}`} width="96" height="96" loading="lazy" />
+        ) : (
+          <span class="portrait placeholder" aria-hidden="true">{m.data.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}</span>
+        )}
         <div class="member-name">
           {m.data.url ? <a href={m.data.url}>{m.data.name}</a> : m.data.name}
           {m.data.role && <span class="tag tag-brand">{m.data.role}</span>}
@@ -51,9 +56,12 @@ const termLabel = (t?: number) => (t === 1 ? '1st term' : t === 2 ? '2nd term' :
       <h2>Permanent member</h2>
       {lifetime.map((m) => (
         <p>
-          <strong>{m.data.name}</strong>{m.data.affiliation && <span class="muted">, {m.data.affiliation}</span>}.
-          Voted a permanent member at IWPC 2002 in recognition of his efforts in establishing IWPC/ICPC as one of the
-          premier venues in the area of program comprehension.
+          <strong>{m.data.name}</strong>{m.data.affiliation && <span class="muted">, {m.data.affiliation}</span>}
+          (1934–2020) was voted a permanent member at IWPC 2002 in recognition of his efforts in establishing
+          IWPC/ICPC as one of the premier venues in the area of program comprehension. He founded the series in
+          1992; read <a href={withBase('/history')}>his memoir of its beginnings</a> and the
+          <a href="https://conf.researchr.org/info/icpc-2021/obituary">ICPC 2021 tribute</a>. The
+          <a href={withBase('/awards#rajlich')}>Václav Rajlich Early Career Achievement Award</a> is named in his honor.
         </p>
       ))}
     </>
@@ -68,6 +76,9 @@ const termLabel = (t?: number) => (t === 1 ? '1st term' : t === 2 ? '2nd term' :
 
 <style>
   .members { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: var(--space-md); }
+  .member { display: grid; grid-template-columns: 6rem 1fr; grid-template-rows: auto auto auto; column-gap: var(--space-md); align-items: start; }
+  .member .portrait { grid-row: 1 / span 3; width: 6rem; height: 6rem; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface); box-shadow: var(--shadow); background: var(--bg-subtle); }
+  .member .placeholder { display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; color: var(--text-muted); }
   .member p { margin: 0; }
   .member-name { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
   .member-name a { text-decoration: none; color: var(--text); }
