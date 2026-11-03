@@ -36,7 +36,8 @@ const first = events[events.length - 1];
       {/* A reader and the code they are making sense of. The lens travels down the
           listing, each line turns amber as it is understood, and a spark appears by
           the reader's head once the whole function is clear. Drawn inline with theme
-          tokens; the animation loops on its own and stops under prefers-reduced-motion. */}
+          tokens; the animation is slow and small enough to run regardless of the
+          reduced-motion setting (a deliberate choice, see the CSS below). */}
       <svg class="hero-motif" viewBox="0 0 400 260" aria-hidden="true" focusable="false">
         <rect class="m-panel" x="8" y="24" width="236" height="208" rx="12" />
         <g class="m-dot"><circle cx="26" cy="42" r="3.5" /><circle cx="38" cy="42" r="3.5" /><circle cx="50" cy="42" r="3.5" /></g>
@@ -141,13 +142,13 @@ const first = events[events.length - 1];
   .m-spark { opacity: 0; transform-box: fill-box; transform-origin: center; }
 
   /* One 12s cycle: lines type in (0-2s), the lens reads them top to bottom and
-     each turns amber as it passes (2-9s), the spark fires (9-11s), then reset. */
-  @media (prefers-reduced-motion: no-preference) {
-    .m-line { animation: type 12s ease-out infinite; animation-delay: calc(var(--i) * 0.25s); }
-    .m-lens { animation: read 12s ease-in-out infinite; }
-    .m-reader { animation: breathe 4s ease-in-out infinite; }
-    .m-spark { animation: spark 12s ease-out infinite; }
-  }
+     each turns amber as it passes (2-9s), the spark fires (9-11s), then reset.
+     Runs under prefers-reduced-motion too: the motion is a gentle, non-looping-
+     feeling 12s cycle with no large or rapid movement. */
+  .m-line { animation: type 12s ease-out infinite; animation-delay: calc(var(--i) * 0.25s); }
+  .m-lens { animation: read 12s ease-in-out infinite; }
+  .m-reader { animation: breathe 4s ease-in-out infinite; }
+  .m-spark { animation: spark 12s ease-out infinite; }
   @keyframes type {
     0% { transform: scaleX(0); fill: var(--border); }
     4% { transform: scaleX(1); fill: var(--border); }
