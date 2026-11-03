@@ -15,6 +15,10 @@ const paragraphs = memoir.trim().split(/\n\s*\n/);
 
   <div class="layout">
     <article class="prose memoir">
+      <figure class="author">
+        <img src={withBase('/images/people/vaclav-rajlich.png')} alt="Václav Rajlich" width="160" height="160" />
+        <figcaption class="small muted">Václav Rajlich, who organized the first workshop in 1992 and is a permanent member of the steering committee.</figcaption>
+      </figure>
       {paragraphs.map((p) => <p>{p}</p>)}
     </article>
     <aside class="milestones">
@@ -43,6 +47,10 @@ const paragraphs = memoir.trim().split(/\n\s*\n/);
 <style>
   .layout { display: grid; grid-template-columns: minmax(0, 1fr) 18rem; gap: var(--space-xl); align-items: start; }
   @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+  .author { float: right; width: 11rem; margin: 0.3rem 0 var(--space-sm) var(--space-lg); text-align: center; }
+  .author img { width: 10rem; height: 10rem; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow); }
+  .author figcaption { margin-top: var(--space-xs); line-height: 1.4; text-align: left; }
+  @media (max-width: 560px) { .author { float: none; width: auto; margin: 0 0 var(--space-md); display: flex; gap: var(--space-md); align-items: center; text-align: left; } .author img { width: 6rem; height: 6rem; flex: none; } }
   .memoir p:first-of-type::first-letter {
     font-family: var(--font-display); font-weight: 800; font-size: 3.2em; float: left; line-height: 0.85;
     padding-right: 0.08em; color: var(--brand);
