@@ -56,9 +56,12 @@ const termLabel = (t?: number) => (t === 1 ? '1st term' : t === 2 ? '2nd term' :
       <h2>Permanent member</h2>
       {lifetime.map((m) => (
         <p>
-          <strong>{m.data.name}</strong>{m.data.affiliation && <span class="muted">, {m.data.affiliation}</span>}.
-          Voted a permanent member at IWPC 2002 in recognition of his efforts in establishing IWPC/ICPC as one of the
-          premier venues in the area of program comprehension.
+          <strong>{m.data.name}</strong>{m.data.affiliation && <span class="muted">, {m.data.affiliation}</span>}
+          (1934–2020) was voted a permanent member at IWPC 2002 in recognition of his efforts in establishing
+          IWPC/ICPC as one of the premier venues in the area of program comprehension. He founded the series in
+          1992; read <a href={withBase('/history')}>his memoir of its beginnings</a> and the
+          <a href="https://conf.researchr.org/info/icpc-2021/obituary">ICPC 2021 tribute</a>. The
+          <a href={withBase('/awards#rajlich')}>Václav Rajlich Early Career Achievement Award</a> is named in his honor.
         </p>
       ))}
     </>

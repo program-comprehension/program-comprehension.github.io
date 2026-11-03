@@ -27,6 +27,7 @@
   termEnds: 2027
   order: 2
 - id: coen-de-roover
+  photo: /images/people/coen-de-roover.jpg
   name: Coen De Roover
   affiliation: Vrije Universiteit Brussel, Belgium
   url: https://soft.vub.ac.be/~cderoove/
@@ -46,6 +47,7 @@
   termEnds: 2028
   order: 4
 - id: masud-rahman
+  photo: /images/people/masud-rahman.jpg
   name: Mohammad Masudur Rahman
   affiliation: Dalhousie University, Canada
   url: https://www.cs.dal.ca/~masud/
@@ -55,6 +57,7 @@
   termEnds: 2029
   order: 5
 - id: nicole-novielli
+  photo: /images/people/nicole-novielli.jpg
   name: Nicole Novielli
   affiliation: University of Bari, Italy
   url: https://collab.di.uniba.it/nicole/
